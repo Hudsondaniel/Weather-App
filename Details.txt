@@ -1,0 +1,9 @@
+API for building the project:
+
+https://www.weatherapi.com/
+
+
+Google map API URL for maps:
+
+https://console.cloud.google.com/google/maps-apis/home?project=braided-depth-426915-r5
+
