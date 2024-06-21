@@ -1,7 +1,7 @@
 {
   "name": "weather-app",
   "version": "1.0.0",
-  "description": "A full weather app",
+  "description": "Full fledged weather app for web",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -12,9 +12,13 @@
   },
   "keywords": [
     "weather",
-    "map",
-    "api",
-    "odin"
+    "vanilla",
+    "js",
+    "hudson",
+    "git",
+    "odin",
+    "project",
+    "TOP"
   ],
   "author": "Hudson Daniel",
   "license": "ISC",
@@ -22,13 +26,8 @@
     "url": "https://github.com/Hudsondaniel/Weather-App/issues"
   },
   "homepage": "https://github.com/Hudsondaniel/Weather-App#readme",
-  "dependencies": {
-    "css-loader": "^7.1.2",
-    "file-loader": "^6.2.0",
-    "image-loader": "^0.0.1"
-  },
   "devDependencies": {
-    "webpack": "^5.92.0",
+    "webpack": "^5.92.1",
     "webpack-cli": "^5.1.4"
   }
 }
