@@ -1,3 +1,8 @@
-.button-test{
-    color: red;
+.img-test{
+    width: 500px;
+    height: 600px;
+}
+
+body{
+    background-color: black;
 }
