@@ -140,10 +140,20 @@ address {
 /* Design Content */
 
 body{
-    background-color: gray;
+    background-color: rgb(106, 108, 114);
+    overflow: hidden;
 }
 
 .Main-container{
     display: grid;
-    grid-template-columns: 400px 1fr;
+    grid-template-columns: 0.1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    height: 90%;
+    margin-right: 100px;
+    margin-left: 100px;
+    margin-top: 50px;
+}
+
+nav{
+    height: 100%;
 }
