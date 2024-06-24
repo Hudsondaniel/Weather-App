@@ -148,10 +148,16 @@ body{
     display: grid;
     grid-template-columns: 0.1fr 1fr;
     grid-template-rows: 1fr 1fr;
-    height: 90%;
+    height: 85%;
     margin-right: 100px;
     margin-left: 100px;
-    margin-top: 50px;
+    margin-top: 100px;
+    background-color: black;
+    box-shadow: 
+    0 4px 8px rgba(0, 0, 0, 0.2),  /* Subtle shadow */
+    0 8px 16px rgba(0, 0, 0, 0.2), /* Slightly larger shadow */
+    0 16px 32px rgba(0, 0, 0, 0.2), /* Even larger shadow */
+    0 32px 64px rgba(0, 0, 0, 0.2); /* Largest shadow */
 }
 
 nav{
