@@ -1,34 +1,32 @@
-
 @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 
 /* Design Content */
 
-body{
+body {
     display: block;
     overflow: hidden;
     background-color: rgb(106, 108, 114);
     height: 100vh;
     margin: 0;
+    font-family: 'Poppins', sans-serif; /* Ensure Poppins font is applied */
 }
 
-.Main-container{
+.Main-container {
     display: grid;
     grid-template-columns: 90px 1fr;
-    padding: 20px;
-    height: calc(100% - 50px);
-    margin-top: 30px !important;
-    margin-right: 100px;
-    margin-left: 100px;
+    padding: 20px; /* Adjusted padding for inner content */
+    height: calc(100vh - 110px); /* Adjusted height calculation to account for padding */
+    margin: 30px 100px; /* Adjusted margins */
     border-radius: 35px;
     background-color: black;
     box-shadow: 
-    0 4px 8px rgba(0, 0, 0, 0.2),  /* Subtle shadow */
-    0 8px 16px rgba(0, 0, 0, 0.2), /* Slightly larger shadow */
-    0 16px 32px rgba(0, 0, 0, 0.2), /* Even larger shadow */
-    0 32px 64px rgba(0, 0, 0, 0.2); /* Largest shadow */
+        0 4px 8px rgba(0, 0, 0, 0.2),  /* Subtle shadow */
+        0 8px 16px rgba(0, 0, 0, 0.2), /* Slightly larger shadow */
+        0 16px 32px rgba(0, 0, 0, 0.2), /* Even larger shadow */
+        0 32px 64px rgba(0, 0, 0, 0.2); /* Largest shadow */
 }
 
-nav{
+nav {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -39,19 +37,18 @@ nav{
     -webkit-backdrop-filter: blur(5px); 
 }
 
-.img-icon{
+.img-icon {
     width: 40px;
     height: 40px;
 }
 
-.title{
+.title {
     color: white;
     font-size: 15px;
     padding-top: 5px;
-
 }
 
-.icon-div{
+.icon-div {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -59,10 +56,9 @@ nav{
     margin-top: 20px;
 }
 
-h4{
-    padding: 0px;
-    margin: 0px;
+h4 {
+    padding: 0;
+    margin: 0;
 }
-
 
 
