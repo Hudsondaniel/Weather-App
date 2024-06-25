@@ -26,15 +26,18 @@ body {
         0 32px 64px rgba(0, 0, 0, 0.2); /* Largest shadow */
 }
 
+/* Nav bar styling */
+
 nav {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     background: rgba(255, 255, 255, 0.2);
     border-radius: 16px;
-    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-    backdrop-filter: blur(5px);
+    box-shadow: 0 4px 20px rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(6px);
     -webkit-backdrop-filter: blur(5px); 
+    background-image: linear-gradient(to top, rgba(2, 49, 70, 0.274) 40%, rgba(92, 92, 5, 0.021));
 }
 
 .img-icon {
@@ -69,5 +72,43 @@ h4 {
     width: 60px;
     height: 60px;
     border-radius: 50%;
+    margin-bottom: 20px;
 }
+
+.main-div{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 30px;
+}
+
+.nav-icon{
+    width: 100%; /* Adjust percentage as needed */
+    height: auto; 
+}
+
+.nav-icon {
+    width: 30px; /* Default width */
+    height: 30px; /* Default height */
+    max-width: 100%; /* Ensure icon does not exceed container size */
+    max-height: 100%; /* Ensure icon does not exceed container size */
+}
+
+.profile-div{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 30px;
+}
+
+.notification-icon {
+    background-color: black;
+    width: 45px;
+    border-radius: 50%; /* Ensures it's a perfect circle */
+    padding: 10px; /* Adjust padding as needed */
+    box-sizing: border-box; /* Ensures padding is included in the width and height */
+}
+
+
+
 
