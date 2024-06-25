@@ -109,6 +109,44 @@ h4 {
     box-sizing: border-box; /* Ensures padding is included in the width and height */
 }
 
+/* First deck of the weather app */
+
+.deck-container {
+    display: grid;
+    grid-template-rows: 0.5fr 0.5fr;
+    margin-left: 20px;
+}
+
+.top-deck, .bottom-deck {
+    display: grid;
+    grid-template-columns: 0.3fr 0.7fr;
+    gap: 20px;
+}
+
+.bottom-deck{
+    margin-top: 20px;
+}
+
+.top-deck-first, .top-deck-second, .bottom-deck-first, .bottom-deck-second{
+    background: rgba(255, 255, 255, 0.2);   
+    border-radius: 16px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+}
 
 
+.heading-bottom{
+    color: white;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    padding-left: 20px;
+    font-weight: 300;
+}
+
+.top-deck-first{
+    background: linear-gradient(135deg, rgba(255,0,150,0.2), rgba(0,204,255,0.2));
+    background: radial-gradient(circle, rgba(255,0,150,0.2), rgba(0,204,255,0.2), rgba(0,128,0,0.2), rgba(255,255,0,0.2), rgba(0,0,255,0.2), rgba(255,0,0,0.2));
+    background-blend-mode: screen;
+}
 
