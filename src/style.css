@@ -65,6 +65,7 @@ nav {
 h4 {
     padding: 0;
     margin: 0;
+    font-size: 15px;
 }
 
 .profile-pic{
@@ -113,7 +114,7 @@ h4 {
 
 .deck-container {
     display: grid;
-    grid-template-rows: 0.5fr 0.5fr;
+    grid-template-rows: 0.6fr 0.4fr;
     margin-left: 20px;
 }
 
@@ -176,3 +177,38 @@ backdrop-filter: blur(0.8px);
     background-blend-mode: multiply;
 }
 
+/* Laying out static inner containers */
+
+.heading-top-second{
+    display: flex;
+    color: white;
+    padding-left: 10px;
+    font-weight: 300;
+}
+
+.top-deck-second{
+    display: grid;
+    grid-template-rows: 35px 0.6fr 0.4fr;
+    padding: 20px;
+}
+
+.middle-decks{
+    display:grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 15px;
+}
+
+.bottom-decks{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    margin-top: 15px;
+    gap: 15px;
+}
+
+.wind-status, .UV-index, .sunrise, .humidity, .visibility, .feels-like{
+    background: rgba(0, 0, 0, 0.59);
+    border-radius: 10px;
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
