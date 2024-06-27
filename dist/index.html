@@ -6,6 +6,7 @@
     <link rel="icon" type="image/x-icon"  href="../Assets/weather-icons-dev/production/fill/svg/snowflake.svg">
     <title>Weather App</title>
     <script src="./main.js" defer></script>
+    <script type="module" src="https://unpkg.com/@googlemaps/extended-component-library@0.6" defer></script>
 </head>
 <body>
     <!-- contiainer inside which everything goes-->
@@ -70,7 +71,14 @@
                     <h4 class="heading-bottom">7 Days Forecast</h4>
                 </div>
                 <div class="bottom-deck-second">
-                    <h4 class="heading-bottom">Weather Condition Map</h4>
+                    <gmpx-api-loader key="AIzaSyAPt-7nt-ZuKZh02FKzU_WhlbB9G_gyTQs" solution-channel="GMP_GE_mapsandplacesautocomplete_v1">
+                    </gmpx-api-loader>
+                    <gmp-map center="40.749933,-73.98633" zoom="13" map-id="DEMO_MAP_ID">
+                        <div slot="control-block-start-inline-start" class="place-picker-container">
+                            <gmpx-place-picker placeholder="Enter an address"></gmpx-place-picker>
+                        </div>
+                        <gmp-advanced-marker></gmp-advanced-marker>
+                    </gmp-map>
                 </div>
             </div>
         </div>
