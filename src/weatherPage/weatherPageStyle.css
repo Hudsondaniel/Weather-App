@@ -1,0 +1,8 @@
+.top-deck-first{
+    padding: 20px;
+}
+
+.search-bar{
+    display: grid;
+    grid-template-columns: 1fr 0.3fr;
+}
