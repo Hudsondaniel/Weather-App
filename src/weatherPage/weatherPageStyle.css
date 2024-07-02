@@ -76,17 +76,45 @@ h1{
 
 /* Text styling  */
 
-.weather-icon{
+.second-container{
+    display: grid;
+    grid-template-rows: 0.4fr 1fr;
+    overflow: hidden;
+}
+
+.temperature-letter{
     display: flex;
     place-items: start;  
+    justify-content: flex-start; 
+    overflow: hidden;
+}
+
+.temperature{
+    font-family: 'Poppins', sans-serif;
+    color: white;
+    font-size: 6vh;
+    font-weight: 300;
+    padding: 0; /* Remove any default padding */
+    object-fit: contain; 
+    letter-spacing: 4px;
+    padding-left: 20px;
+}
+
+span{
+    font-size: 4vh;
+}
+
+/* Editing the last container with texts */
+
+.weather-city-name{
+    display: grid;
+    grid-template-rows: 50px ;
+}
+.weather{
+    display: flex;
+    place-items: start;  
+    flex-direction: row;
     justify-content: flex-start; /* Set a fixed width for the weather icon container */
     overflow: hidden;
 }
 
-.icon-temp{
-    height: 100%;
-    width: 100%;
-    margin-right: 20%; /* Remove any default margin */
-    padding: 0; /* Remove any default padding */
-    object-fit: contain; 
-}
