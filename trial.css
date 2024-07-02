@@ -1,0 +1,108 @@
+.search-bar{
+    display: grid;
+    grid-template-rows: 50px 0.4fr ;
+}
+
+.icon-temp{
+    height: 70%;
+    width: 70%;
+}
+
+.weather-icon{
+    display: flex;
+    justify-self: start;;
+}
+
+
+
+
+
+
+input::placeholder{
+    color: white;
+}
+
+input[type="text"]{
+    font-family: 'Poppins', sans-serif;
+    padding-left: 20px;
+    color: white;
+}
+
+input{
+    border-radius: 10px;
+    background-color: rgba(0, 0, 0, 0.411);
+    border: none;
+    padding: 0;
+    outline: none;
+    cursor: pointer;
+    box-shadow: 0 0 5px 0.2px rgba(128, 128, 128, 0.411);
+    border: 1px solid black;
+}
+
+.weather-image{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr;
+    margin-top: 20px;
+}
+
+.unit{
+    padding: 0;
+    margin: 0;
+    font-size: 7vh;
+    color: white;
+    font-weight: 300;
+    display: flex; /* Use flexbox for centering content */
+    justify-content: center; /* Center content horizontally */
+    align-items: center; /* Center content vertically */
+}
+
+.temperature{
+    display: grid;
+    grid-template-rows: 1fr 0.3fr;
+    padding-top: 10px;
+    padding-left: 10px;
+}
+
+.temperature-num{
+    display: flex;
+    margin: 0;
+    justify-content: center;
+    align-items:start
+}
+
+
+
+.elaborate-data{
+    display: grid;
+    grid-template-columns: 50px 1fr;
+    grid-template-rows: 1fr;
+}
+
+.elaborate-text{
+    font-size: 15px;
+    color: white;
+}
+
+.monochrome-fill{
+    width: 100%;
+    height: 100%;
+}
+
+
+<div class="temperature">
+<div class="temperatue-num"><h1 class="unit">28°C</h1></div>
+<div class="elaborate-data">
+    <img src="../Assets/weather-icons-dev/production/monochrome/svg-static/clear-day.svg" alt="" class="monochrome-fill">
+    <p class="elaborate-text">Clear Day</p>
+</div>
+</div>
+
+<div class="location-time-data">
+<div class="location">
+
+</div>
+<div class="calendar">
+
+</div>
+</div>
