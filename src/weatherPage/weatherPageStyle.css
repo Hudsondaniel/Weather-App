@@ -1,4 +1,4 @@
-h1{
+h1, h3{
     border: none;
     background: none;
     padding: 0;
@@ -118,3 +118,20 @@ span{
     overflow: hidden;
 }
 
+
+/* Editing location and calendar container */
+
+.city-calendar{
+    margin-top: 10px;
+    margin-left: 20px;
+}
+
+.location-container{
+    display: flex;
+    flex-direction: row;
+}
+
+.calendar-container{
+    display: flex;
+    flex-direction: row;
+}
