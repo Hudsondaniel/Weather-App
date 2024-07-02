@@ -90,19 +90,3 @@ input{
 }
 
 
-<div class="temperature">
-<div class="temperatue-num"><h1 class="unit">28°C</h1></div>
-<div class="elaborate-data">
-    <img src="../Assets/weather-icons-dev/production/monochrome/svg-static/clear-day.svg" alt="" class="monochrome-fill">
-    <p class="elaborate-text">Clear Day</p>
-</div>
-</div>
-
-<div class="location-time-data">
-<div class="location">
-
-</div>
-<div class="calendar">
-
-</div>
-</div>

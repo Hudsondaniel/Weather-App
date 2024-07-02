@@ -1,20 +1,39 @@
+h1{
+    border: none;
+    background: none;
+    padding: 0;
+    margin: 0;
+}
+
+/* Styling for the deck */
 
 .top-deck-first{
     display: grid;
-    grid-template-rows: 0.5fr 1fr;
+    grid-template-rows: 0.7fr 1fr;
     padding: 20px;
 }
 
 .first-container{
     display: grid;
     grid-template-columns: 1fr 1fr;
+    overflow: hidden;
 }
 
 /* Styling for the icon */
 
+.weather-icon{
+    display: flex;
+    place-items: start;  
+    justify-content: flex-start; /* Set a fixed width for the weather icon container */
+    overflow: hidden;
+}
+
 .icon-temp{
     height: 100%;
     width: 100%;
+    margin-right: 20%; /* Remove any default margin */
+    padding: 0; /* Remove any default padding */
+    object-fit: contain; 
 }
 
 /* Styling for the search icon */
@@ -23,8 +42,6 @@
     display: grid;
     justify-items: end;  /* Aligns items to the right */
     align-items: start;  /* Aligns items to the top */
-    width: 100%;         /* Ensures the container takes full width if needed */
-    height: 100%; 
 }
 
 .search-btn {
@@ -55,4 +72,21 @@
 .search-symbol{
     width: 100%;
     height: 70%;
+}
+
+/* Text styling  */
+
+.weather-icon{
+    display: flex;
+    place-items: start;  
+    justify-content: flex-start; /* Set a fixed width for the weather icon container */
+    overflow: hidden;
+}
+
+.icon-temp{
+    height: 100%;
+    width: 100%;
+    margin-right: 20%; /* Remove any default margin */
+    padding: 0; /* Remove any default padding */
+    object-fit: contain; 
 }
