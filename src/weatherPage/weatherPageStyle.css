@@ -1,3 +1,4 @@
+
 h1, h3{
     border: none;
     background: none;
@@ -100,7 +101,7 @@ h1, h3{
     padding-left: 20px;
 }
 
-span{
+.degree{
     font-size: 4vh;
 }
 
@@ -121,6 +122,17 @@ span{
 
 /* Editing location and calendar container */
 
+.city-name, .calendar{
+    color: white;
+    font-weight: 100;
+    padding-left: 20px;
+    font-size: 2vh;
+}
+
+.time{
+    font-weight: 400;
+}
+
 .city-calendar{
     margin-top: 10px;
     margin-left: 20px;
@@ -134,4 +146,5 @@ span{
 .calendar-container{
     display: flex;
     flex-direction: row;
+    padding-top: 5%;
 }
