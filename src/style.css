@@ -20,7 +20,7 @@ body {
     grid-template-columns: 90px 1fr;
     padding: 20px;
     width: calc(100% - 200px); /* Adjust to your needs */
-    height: calc(100% - 100px); /* Adjust to your needs */
+    height: calc(100% - 90px); /* Adjust to your needs */
     background-color: black;
     border-radius: 35px;
     box-shadow: 
