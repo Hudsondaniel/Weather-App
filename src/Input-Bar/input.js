@@ -10,8 +10,15 @@ button.addEventListener('click', function() {
 });
 
 modalButton.addEventListener('click', function() {
-        const inputValue = modalInput.value;
-        alert('Hello ' + inputValue);
+        const inputValue = modalInput.value.trim(); // Get input value and trim whitespace
+        if (inputValue) {
+            // Use inputValue as needed (e.g., store in a variable, process, etc.)
+                alert('Location name entered: ' + inputValue);
+            // Reset input field (optional)
+                modalInput.value = '';
+        } else {
+                alert('Please enter a location name');
+        }
         modal.style.display = 'none';
         modalOverlay.style.display = 'none';
 });
