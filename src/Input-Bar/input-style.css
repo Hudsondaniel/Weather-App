@@ -67,6 +67,7 @@
 .modal-button {
     padding: 8px 20px;
     background-color: #18a6d1a4;
+    font-family: 'Poppins', sans-serif;
     color: white;
     border: none;
     cursor: pointer;
@@ -74,4 +75,5 @@
     margin-right: 10%;
     margin-top: 15px;
     margin-bottom: 15px;
+    font-size: 2vh;
 }
