@@ -1,34 +1,33 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 
 /* Design Content */
-html, body{
+html, body {
     height: 100%;
+    margin: 0;
 }
 
 body {
-    display: block;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     overflow: hidden;
     background-color: rgb(106, 108, 114);
-    height: 100vh;
-    margin: 0;
-    font-family: 'Poppins', sans-serif; /* Ensure Poppins font is applied */
+    font-family: 'Poppins', sans-serif;
 }
 
 .Main-container {
     display: grid;
     grid-template-columns: 90px 1fr;
-    padding: 20px !important; /* Adjusted padding with increased specificity */
-    height: calc(100vh - 80px); /* Adjusted height calculation to account for padding */
-    margin-right: 100px;
-    margin-left: 100px;
-    margin-top: 30px;
-    border-radius: 35px;
+    padding: 20px;
+    width: calc(100% - 200px); /* Adjust to your needs */
+    height: calc(100% - 100px); /* Adjust to your needs */
     background-color: black;
+    border-radius: 35px;
     box-shadow: 
-        0 4px 8px rgba(0, 0, 0, 0.2),  /* Subtle shadow */
-        0 8px 16px rgba(0, 0, 0, 0.2), /* Slightly larger shadow */
-        0 16px 32px rgba(0, 0, 0, 0.2), /* Even larger shadow */
-        0 32px 64px rgba(0, 0, 0, 0.2); /* Largest shadow */
+        0 4px 8px rgba(0, 0, 0, 0.2),
+        0 8px 16px rgba(0, 0, 0, 0.2),
+        0 16px 32px rgba(0, 0, 0, 0.2),
+        0 32px 64px rgba(0, 0, 0, 0.2);
 }
 
 /* Nav bar styling */
@@ -119,8 +118,9 @@ h4 {
 
 .deck-container {
     display: grid;
-    grid-template-rows: 0.6fr 0.4fr;
+    grid-template-rows: 1fr 0.6fr;
     margin-left: 20px;
+    height: 100%;
 }
 
 .top-deck, .bottom-deck {
