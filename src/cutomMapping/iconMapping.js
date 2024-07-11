@@ -1,3 +1,27 @@
+const clearDay = '../../Assets/weather-icons-dev/production/fill/svg/clear-day.svg'
+const clearNight = '../../Assets/weather-icons-dev/production/fill/svg/clear-night.svg'
+const partyCloudy = '../../Assets/weather-icons-dev/production/fill/svg/partly-cloudy-day.svg'
+const partyCloudyNight = '../../Assets/weather-icons-dev/production/svg/partly-cloudy-night.svg'
+const cloudy = '../../Assets/weather-icons-dev/production/fill/svg/cloudy.svg'
+const cloudyNight = '../../Assets/weather-icons-dev/production/fill/svg/cloudy.svg'
+const Overcast = '../../Assets/weather-icons-dev/production/fill/svg/overcast.svg'
+const OvercastNight = '../../Assets/weather-icons-dev/production/fill/svg/overcast-night.svg'
+const mist = '../../Assets/weather-icons-dev/production/fill/svg/mist.svg'
+const mistNight = '../../Assets/weather-icons-dev/production/fill/svg/mist.svg'
+const patchyRain = '../../Assets/weather-icons-dev/production/fill/svg/partly-cloudy-day-rain.svg'
+const patchyRainNight = '../../Assets/weather-icons-dev/production/fill/svg/partly-cloudy-night-rain.svg'
+const patchySnow = '../../Assets/weather-icons-dev/production/fill/svg/partly-cloudy-day-snow.svg'
+const patchySnowNight = '../../Assets/weather-icons-dev/production/fill/svg/partly-cloudy-night-snow.svg'
+const patchySleet = '../../Assets/weather-icons-dev/production/fill/svg/partly-cloudy-day-sleet.svg'
+const patchySleetNight = '../../Assets/weather-icons-dev/production/fill/svg/partly-cloudy-night-sleet.svg'
+const thunderOutbreak = '../../Assets/weather-icons-dev/production/fill/svg/thunderstorms-day.svg'
+const thunderOutbreakNight = '../../Assets/weather-icons-dev/production/fill/svg/thunderstorms-night.svg'
+const blowingSnow = '../../Assets/weather-icons-dev/production/fill/svg/extreme-day-snow.svg'
+const blowingSnowNight = '../../Assets/weather-icons-dev/production/fill/svg/extreme-night-snow.svg'
+
+// Still a lot needs to be finished
+
+
 const weatherIcons = {
     "1000": {
         day: "../../",
@@ -17,8 +41,7 @@ const weatherIcons = {
     },
     "1030": {
         day: "Mist",
-        night: "Mist"
-    },
+        night: "Mist"    },
     "1063": {
         day: "Patchy rain possible",
         night: "Patchy rain possible"
