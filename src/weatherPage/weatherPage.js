@@ -12,6 +12,7 @@ async function displayWeather() {
     // Selecting containers to display the data
     const temperatureDiv = document.querySelector('.temperature-letter');
     const locationContainer = document.querySelector('.location');
+    const dateContainer = document.querySelector('.time-calendar');
     
     if (weatherData) {
 
@@ -24,6 +25,11 @@ async function displayWeather() {
         const country = weatherData.location.country;
         const locality = weatherData.location.name;
         locationContainer.innerHTML = `<h3 id="city-name" class="city-name">${locality} , ${country} </h3>`
+
+        // Date and time data
+        const date = weatherData.location.localtime;
+        dateContainer.innerHTML = `<h3 class="calendar"><span class="time">${date}</span></h3>`;
+        
     }
 }
 
