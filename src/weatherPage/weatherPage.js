@@ -1,4 +1,5 @@
-import currentWeather from '../weather-Data/weatherData'
+import currentWeather from '../weather-Data/weatherData';
+import weatherIcons from "../cutomMapping/iconMapping";
 
 const apiKey = 'a45efc5b41c54b5b8e6155635240606';
 
@@ -13,6 +14,9 @@ async function displayWeather() {
     const temperatureDiv = document.querySelector('.temperature-letter');
     const locationContainer = document.querySelector('.location');
     const dateContainer = document.querySelector('.time-calendar');
+    const svgContainer = document.querySelector('.weather-icon');
+    const conditionCode = weatherData.current.condition.code; // Get the condition code from the weather data
+    const isDay = weatherData.current.is_day;
     
     if (weatherData) {
 
@@ -29,8 +33,15 @@ async function displayWeather() {
         // Date and time data
         const date = weatherData.location.localtime;
         dateContainer.innerHTML = `<h3 class="calendar"><span class="time">${date}</span></h3>`;
-        
-    }
+
+        // SVG data. 
+        console.log(conditionCode);
+        if(isDay){
+            svgContainer.innerHTML = `<img src= ${weatherIcons[conditionCode]?.day} class="icon-temp">`;
+        }
+        else 
+            svgContainer.innerHTML = `<img src= ${weatherIcons[conditionCode]?.night} class="icon-temp">`;
+        }
 }
 
 displayWeather();

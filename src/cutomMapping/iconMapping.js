@@ -1,269 +1,257 @@
-const clearDay = '../../Assets/weather-icons-dev/production/fill/svg/clear-day.svg'
-const clearNight = '../../Assets/weather-icons-dev/production/fill/svg/clear-night.svg'
-const partyCloudy = '../../Assets/weather-icons-dev/production/fill/svg/partly-cloudy-day.svg'
-const partyCloudyNight = '../../Assets/weather-icons-dev/production/svg/partly-cloudy-night.svg'
-const cloudy = '../../Assets/weather-icons-dev/production/fill/svg/cloudy.svg'
-const cloudyNight = '../../Assets/weather-icons-dev/production/fill/svg/cloudy.svg'
-const Overcast = '../../Assets/weather-icons-dev/production/fill/svg/overcast.svg'
-const OvercastNight = '../../Assets/weather-icons-dev/production/fill/svg/overcast-night.svg'
-const mist = '../../Assets/weather-icons-dev/production/fill/svg/mist.svg'
-const mistNight = '../../Assets/weather-icons-dev/production/fill/svg/mist.svg'
-const patchyRain = '../../Assets/weather-icons-dev/production/fill/svg/partly-cloudy-day-rain.svg'
-const patchyRainNight = '../../Assets/weather-icons-dev/production/fill/svg/partly-cloudy-night-rain.svg'
-const patchySnow = '../../Assets/weather-icons-dev/production/fill/svg/partly-cloudy-day-snow.svg'
-const patchySnowNight = '../../Assets/weather-icons-dev/production/fill/svg/partly-cloudy-night-snow.svg'
-const patchySleet = '../../Assets/weather-icons-dev/production/fill/svg/partly-cloudy-day-sleet.svg'
-const patchySleetNight = '../../Assets/weather-icons-dev/production/fill/svg/partly-cloudy-night-sleet.svg'
-const thunderOutbreak = '../../Assets/weather-icons-dev/production/fill/svg/thunderstorms-day.svg'
-const thunderOutbreakNight = '../../Assets/weather-icons-dev/production/fill/svg/thunderstorms-night.svg'
-const blowingSnow = '../../Assets/weather-icons-dev/production/fill/svg/extreme-day-snow.svg'
-const blowingSnowNight = '../../Assets/weather-icons-dev/production/fill/svg/extreme-night-snow.svg'
-const Blizzard = '../../Assets/weather-icons-dev/production/fill/svg/'
-const BlizzardNight = '../../Assets/weather-icons-dev/production/fill/svg/'
-const fog = '../../Assets/weather-icons-dev/production/fill/svg/fog.svg'
-const fogNight = '../../Assets/weather-icons-dev/production/fill/svg/fog-night.svg'
-const freezingFog = '../../Assets/weather-icons-dev/production/fill/svg/extreme-fog.svg'
-const freezingFogNight = '../../Assets/weather-icons-dev/production/fill/svg/extreme-fog.svg'
-const drizzle = '../../Assets/weather-icons-dev/production/fill/svg/partly-cloudy-day-drizzle.svg'
-const drizzleNight = '../../Assets/weather-icons-dev/production/fill/svg/partly-cloudy-night-drizzle.svg'
-const lightDrizzle = '../../Assets/weather-icons-dev/production/fill/svg/drizzle.svg'
-const lightDrizzleNight = '../../Assets/weather-icons-dev/production/fill/svg/drizzle.svg'
-const freezeDrizzle = '../../Assets/weather-icons-dev/production/fill/svg/overcast-day-drizzle.svg'
-const freezeDrizzleNight = '../../Assets/weather-icons-dev/production/fill/svg/overcast-night-drizzle.svg'
-const heavyDrizzleDay = '../../Assets/weather-icons-dev/production/fill/svg/extreme-day-drizzle.svg'
-const heavyDrizzleNight = '../../Assets/weather-icons-dev/production/fill/svg/extreme-night-drizzle.svg'
-const lightRain = '../../Assets/weather-icons-dev/production/fill/svg/raindrops.svg'
-const lightRainNight = '../../Assets/weather-icons-dev/production/fill/svg/raindrops.svg'
-const moderateRain = '../../Assets/weather-icons-dev/production/fill/svg/rain.svg'
-const heavyRain = '../../Assets/weather-icons-dev/production/fill/svg/extreme-day-rain.svg'
-const heavyRainNight = '../../Assets/weather-icons-dev/production/fill/svg/extreme-night-rain.svg'
-const heavyRainPatch = '../../Assets/weather-icons-dev/production/fill/svg/partly-cloudy-day-rain.svg'
-const heavyRainPatchNight = '../../Assets/weather-icons-dev/production/fill/svg/partly-cloudy-night-rain.svg'
-const sleetLight = '../../Assets/weather-icons-dev/production/fill/svg/partly-cloudy-day-sleet.svg'
-const sleetLightNight = '../../Assets/weather-icons-dev/production/fill/svg/partly-cloudy-night-sleet.svg'
-const moderateSleet = '../../Assets/weather-icons-dev/production/fill/svg/overcast-day-sleet.svg'
-const moderateSleetNight = '../../Assets/weather-icons-dev/production/fill/svg/overcast-night-sleet.svg'
-const snowLight = '../../Assets/weather-icons-dev/production/fill/svg/partly-cloudy-day-snow.svg'
-const snowLightNight = '../../Assets/weather-icons-dev/production/fill/svg/partly-cloudy-night.svg'
-const snowModerate = '../../Assets/weather-icons-dev/production/fill/svg/overcast-day-snow.svg'
-const snowModerateNight = '../../Assets/weather-icons-dev/production/fill/svg/overcast-night-snow.svg'
-const heavySnow = '../../Assets/weather-icons-dev/production/fill/svg/extreme-day-snow.svg'
-const heavySnowNight = '../../Assets/weather-icons-dev/production/fill/svg/extreme-night-snow.svg'
-const thunderRain = '../../Assets/weather-icons-dev/production/fill/svg/thunderstorms-rain.svg'
-const thunderRainModerate = '../../Assets/weather-icons-dev/production/fill/svg/thunderstorms-day-rain.svg'
-const thunderRainModerateNight = '../../Assets/weather-icons-dev/production/fill/svg/thunderstorms-night-rain.svg'
-const thunderRainHeavy = '../../Assets/weather-icons-dev/production/fill/svg/thunderstorms-day-extreme-rain.svg'
-const thunderRainHeavyNight = '../../Assets/weather-icons-dev/production/fill/svg/thunderstorms-night-extreme-rain.svg'
-const thunderSnow = '../../Assets/weather-icons-dev/production/fill/svg/thunderstorms-day-snow.svg'
-const thunderSnowNight = '../../Assets/weather-icons-dev/production/fill/svg/thunderstorms-night-rain.svg'
-const thunderSnowHeavy = '../../Assets/weather-icons-dev/production/fill/svg/thunderstorms-day-extreme-snow.svg'
-const thunderSnowHeavyNight = '../../Assets/weather-icons-dev/production/fill/svg/thunderstorms-night-extreme-snow.svg'
-
-
-
-
-
-
-// Still a lot needs to be finished
-
+const clearDay = '../../Assets/weather-icons-dev/production/fill/svg/clear-day.svg';
+const clearNight = '../../Assets/weather-icons-dev/production/fill/svg/clear-night.svg';
+const partyCloudy = '../../Assets/weather-icons-dev/production/fill/svg/partly-cloudy-day.svg';
+const partyCloudyNight = '../../Assets/weather-icons-dev/production/svg/partly-cloudy-night.svg';
+const cloudy = '../../Assets/weather-icons-dev/production/fill/svg/cloudy.svg';
+const cloudyNight = '../../Assets/weather-icons-dev/production/fill/svg/cloudy.svg';
+const Overcast = '../../Assets/weather-icons-dev/production/fill/svg/overcast.svg';
+const OvercastNight = '../../Assets/weather-icons-dev/production/fill/svg/overcast-night.svg';
+const mist = '../../Assets/weather-icons-dev/production/fill/svg/mist.svg';
+const mistNight = '../../Assets/weather-icons-dev/production/fill/svg/mist.svg';
+const patchyRain = '../../Assets/weather-icons-dev/production/fill/svg/partly-cloudy-day-rain.svg';
+const patchyRainNight = '../../Assets/weather-icons-dev/production/fill/svg/partly-cloudy-night-rain.svg';
+const patchySnow = '../../Assets/weather-icons-dev/production/fill/svg/partly-cloudy-day-snow.svg';
+const patchySnowNight = '../../Assets/weather-icons-dev/production/fill/svg/partly-cloudy-night-snow.svg';
+const patchySleet = '../../Assets/weather-icons-dev/production/fill/svg/partly-cloudy-day-sleet.svg';
+const patchySleetNight = '../../Assets/weather-icons-dev/production/fill/svg/partly-cloudy-night-sleet.svg';
+const thunderOutbreak = '../../Assets/weather-icons-dev/production/fill/svg/thunderstorms-day.svg';
+const thunderOutbreakNight = '../../Assets/weather-icons-dev/production/fill/svg/thunderstorms-night.svg';
+const blowingSnow = '../../Assets/weather-icons-dev/production/fill/svg/extreme-day-snow.svg';
+const blowingSnowNight = '../../Assets/weather-icons-dev/production/fill/svg/extreme-night-snow.svg';
+const Blizzard = '../../Assets/weather-icons-dev/production/fill/svg/';
+const BlizzardNight = '../../Assets/weather-icons-dev/production/fill/svg/';
+const fog = '../../Assets/weather-icons-dev/production/fill/svg/fog.svg';
+const fogNight = '../../Assets/weather-icons-dev/production/fill/svg/fog-night.svg';
+const freezingFog = '../../Assets/weather-icons-dev/production/fill/svg/extreme-fog.svg';
+const freezingFogNight = '../../Assets/weather-icons-dev/production/fill/svg/extreme-fog.svg';
+const drizzle = '../../Assets/weather-icons-dev/production/fill/svg/partly-cloudy-day-drizzle.svg';
+const drizzleNight = '../../Assets/weather-icons-dev/production/fill/svg/partly-cloudy-night-drizzle.svg';
+const lightDrizzle = '../../Assets/weather-icons-dev/production/fill/svg/drizzle.svg';
+const lightDrizzleNight = '../../Assets/weather-icons-dev/production/fill/svg/drizzle.svg';
+const freezeDrizzle = '../../Assets/weather-icons-dev/production/fill/svg/overcast-day-drizzle.svg';
+const freezeDrizzleNight = '../../Assets/weather-icons-dev/production/fill/svg/overcast-night-drizzle.svg';
+const heavyDrizzleDay = '../../Assets/weather-icons-dev/production/fill/svg/extreme-day-drizzle.svg';
+const heavyDrizzleNight = '../../Assets/weather-icons-dev/production/fill/svg/extreme-night-drizzle.svg';
+const lightRain = '../../Assets/weather-icons-dev/production/fill/svg/raindrops.svg';
+const lightRainNight = '../../Assets/weather-icons-dev/production/fill/svg/raindrops.svg';
+const moderateRain = '../../Assets/weather-icons-dev/production/fill/svg/rain.svg';
+const heavyRain = '../../Assets/weather-icons-dev/production/fill/svg/extreme-day-rain.svg';
+const heavyRainNight = '../../Assets/weather-icons-dev/production/fill/svg/extreme-night-rain.svg';
+const heavyRainPatch = '../../Assets/weather-icons-dev/production/fill/svg/partly-cloudy-day-rain.svg';
+const heavyRainPatchNight = '../../Assets/weather-icons-dev/production/fill/svg/partly-cloudy-night-rain.svg';
+const sleetLight = '../../Assets/weather-icons-dev/production/fill/svg/partly-cloudy-day-sleet.svg';
+const sleetLightNight = '../../Assets/weather-icons-dev/production/fill/svg/partly-cloudy-night-sleet.svg';
+const moderateSleet = '../../Assets/weather-icons-dev/production/fill/svg/overcast-day-sleet.svg';
+const moderateSleetNight = '../../Assets/weather-icons-dev/production/fill/svg/overcast-night-sleet.svg';
+const snowLight = '../../Assets/weather-icons-dev/production/fill/svg/partly-cloudy-day-snow.svg';
+const snowLightNight = '../../Assets/weather-icons-dev/production/fill/svg/partly-cloudy-night.svg';
+const snowModerate = '../../Assets/weather-icons-dev/production/fill/svg/overcast-day-snow.svg';
+const snowModerateNight = '../../Assets/weather-icons-dev/production/fill/svg/overcast-night-snow.svg';
+const heavySnow = '../../Assets/weather-icons-dev/production/fill/svg/extreme-day-snow.svg';
+const heavySnowNight = '../../Assets/weather-icons-dev/production/fill/svg/extreme-night-snow.svg';
+const thunderRain = '../../Assets/weather-icons-dev/production/fill/svg/thunderstorms-rain.svg';
+const thunderRainModerate = '../../Assets/weather-icons-dev/production/fill/svg/thunderstorms-day-rain.svg';
+const thunderRainModerateNight = '../../Assets/weather-icons-dev/production/fill/svg/thunderstorms-night-rain.svg';
+const thunderRainHeavy = '../../Assets/weather-icons-dev/production/fill/svg/thunderstorms-day-extreme-rain.svg';
+const thunderRainHeavyNight = '../../Assets/weather-icons-dev/production/fill/svg/thunderstorms-night-extreme-rain.svg';
+const thunderSnow = '../../Assets/weather-icons-dev/production/fill/svg/thunderstorms-day-snow.svg';
+const thunderSnowNight = '../../Assets/weather-icons-dev/production/fill/svg/thunderstorms-night-rain.svg';
+const thunderSnowHeavy = '../../Assets/weather-icons-dev/production/fill/svg/thunderstorms-day-extreme-snow.svg';
+const thunderSnowHeavyNight = '../../Assets/weather-icons-dev/production/fill/svg/thunderstorms-night-extreme-snow.svg';
 
 const weatherIcons = {
     "1000": {
-        day: "../../",
-        night: "Clear"
+        day: clearDay,
+        night: clearNight
     },
     "1003": {
-        day: "Partly cloudy",
-        night: "Partly cloudy"
+        day: partyCloudy,
+        night: partyCloudyNight
     },
     "1006": {
-        day: "Cloudy",
-        night: "Cloudy"
+        day: cloudy,
+        night: cloudyNight
     },
     "1009": {
-        day: "Overcast",
-        night: "Overcast"
+        day: Overcast,
+        night: OvercastNight
     },
     "1030": {
-        day: "Mist",
-        night: "Mist"    },
+        day: mist,
+        night: mistNight
+    },
     "1063": {
-        day: "Patchy rain possible",
-        night: "Patchy rain possible"
+        day: patchyRain,
+        night: patchyRainNight
     },
     "1066": {
-        day: "Patchy snow possible",
-        night: "Patchy snow possible"
+        day: patchySnow,
+        night: patchySnowNight
     },
     "1069": {
-        day: "Patchy sleet possible",
-        night: "Patchy sleet possible"
+        day: patchySleet,
+        night: patchySleetNight
     },
     "1072": {
-        day: "Patchy freezing drizzle possible",
-        night: "Patchy freezing drizzle possible"
+        day: freezeDrizzle,
+        night: freezeDrizzleNight
     },
     "1087": {
-        day: "Thundery outbreaks possible",
-        night: "Thundery outbreaks possible"
+        day: thunderOutbreak,
+        night: thunderOutbreakNight
     },
     "1114": {
-        day: "Blowing snow",
-        night: "Blowing snow"
+        day: blowingSnow,
+        night: blowingSnowNight
     },
     "1117": {
-        day: "Blizzard",
-        night: "Blizzard"
+        day: Blizzard,
+        night: BlizzardNight
     },
     "1135": {
-        day: "Fog",
-        night: "Fog"
+        day: fog,
+        night: fogNight
     },
     "1147": {
-        day: "Freezing fog",
-        night: "Freezing fog"
+        day: freezingFog,
+        night: freezingFogNight
     },
     "1150": {
-        day: "Patchy light drizzle",
-        night: "Patchy light drizzle"
+        day: drizzle,
+        night: drizzleNight
     },
     "1153": {
-        day: "Light drizzle",
-        night: "Light drizzle"
+        day: lightDrizzle,
+        night: lightDrizzleNight
     },
     "1168": {
-        day: "Freezing drizzle",
-        night: "Freezing drizzle"
+        day: freezeDrizzle,
+        night: freezeDrizzleNight
     },
     "1171": {
-        day: "Heavy freezing drizzle",
-        night: "Heavy freezing drizzle"
+        day: heavyDrizzleDay,
+        night: heavyDrizzleNight
     },
     "1180": {
-        day: "Patchy light rain",
-        night: "Patchy light rain"
+        day: patchyRain,
+        night: patchyRainNight
     },
     "1183": {
-        day: "Light rain",
-        night: "Light rain"
+        day: lightRain,
+        night: lightRainNight
     },
     "1186": {
-        day: "Moderate rain at times",
-        night: "Moderate rain at times"
+        day: moderateRain,
+        night: moderateRain
     },
     "1189": {
-        day: "Moderate rain",
-        night: "Moderate rain"
+        day: moderateRain,
+        night: moderateRain
     },
     "1192": {
-        day: "Heavy rain at times",
-        night: "Heavy rain at times"
+        day: heavyRainPatch,
+        night: heavyRainPatchNight
     },
     "1195": {
-        day: "Heavy rain",
-        night: "Heavy rain"
+        day: heavyRain,
+        night: heavyRainNight
     },
     "1198": {
-        day: "Light freezing rain",
-        night: "Light freezing rain"
+        day: freezeDrizzle,
+        night: freezeDrizzleNight
     },
     "1201": {
-        day: "Moderate or heavy freezing rain",
-        night: "Moderate or heavy freezing rain"
+        day: moderateSleet,
+        night: moderateSleetNight
     },
     "1204": {
-        day: "Light sleet",
-        night: "Light sleet"
+        day: sleetLight,
+        night: sleetLightNight
     },
     "1207": {
-        day: "Moderate or heavy sleet",
-        night: "Moderate or heavy sleet"
+        day: moderateSleet,
+        night: moderateSleetNight
     },
     "1210": {
-        day: "Patchy light snow",
-        night: "Patchy light snow"
+        day: patchySnow,
+        night: patchySnowNight
     },
     "1213": {
-        day: "Light snow",
-        night: "Light snow"
+        day: snowLight,
+        night: snowLightNight
     },
     "1216": {
-        day: "Patchy moderate snow",
-        night: "Patchy moderate snow"
+        day: snowModerate,
+        night: snowModerateNight
     },
     "1219": {
-        day: "Moderate snow",
-        night: "Moderate snow"
+        day: snowModerate,
+        night: snowModerateNight
     },
     "1222": {
-        day: "Patchy heavy snow",
-        night: "Patchy heavy snow"
+        day: heavySnow,
+        night: heavySnowNight
     },
     "1225": {
-        day: "Heavy snow",
-        night: "Heavy snow"
+        day: heavySnow,
+        night: heavySnowNight
     },
-
-    // Same as sleet
-
     "1237": {
-        day: "Ice pellets",
-        night: "Ice pellets"
+        day: patchySleet,
+        night: patchySleetNight
     },
-
-    // Use rain svg for showers also.
-
     "1240": {
-        day: "Light rain shower",
-        night: "Light rain shower"
+        day: lightRain,
+        night: lightRainNight
     },
     "1243": {
-        day: "Moderate or heavy rain shower",
-        night: "Moderate or heavy rain shower"
+        day: moderateRain,
+        night: moderateRain
     },
     "1246": {
-        day: "Torrential rain shower",
-        night: "Torrential rain shower"
+        day: heavyRain,
+        night: heavyRainNight
     },
     "1249": {
-        day: "Light sleet showers",
-        night: "Light sleet showers"
+        day: sleetLight,
+        night: sleetLightNight
     },
     "1252": {
-        day: "Moderate or heavy sleet showers",
-        night: "Moderate or heavy sleet showers"
+        day: moderateSleet,
+        night: moderateSleetNight
     },
     "1255": {
-        day: "Light snow showers",
-        night: "Light snow showers"
+        day: snowLight,
+        night: snowLightNight
     },
     "1258": {
-        day: "Moderate or heavy snow showers",
-        night: "Moderate or heavy snow showers"
+        day: snowModerate,
+        night: snowModerateNight
     },
     "1261": {
-        day: "Light showers of ice pellets",
-        night: "Light showers of ice pellets"
+        day: patchySleet,
+        night: patchySleetNight
     },
     "1264": {
-        day: "Moderate or heavy showers of ice pellets",
-        night: "Moderate or heavy showers of ice pellets"
+        day: patchySleet,
+        night: patchySleetNight
     },
     "1273": {
-        day: "Patchy light rain with thunder",
-        night: "Patchy light rain with thunder"
+        day: thunderRain,
+        night: thunderRainModerateNight
     },
     "1276": {
-        day: "Moderate or heavy rain with thunder",
-        night: "Moderate or heavy rain with thunder"
+        day: thunderRainModerate,
+        night: thunderRainModerateNight
     },
     "1279": {
-        day: "Patchy light snow with thunder",
-        night: "Patchy light snow with thunder"
+        day: thunderSnow,
+        night: thunderSnowNight
     },
     "1282": {
-        day: "Moderate or heavy snow with thunder",
-        night: "Moderate or heavy snow with thunder"
+        day: thunderSnowHeavy,
+        night: thunderSnowHeavyNight
     }
 };
 
+export default weatherIcons;
