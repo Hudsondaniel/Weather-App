@@ -1,5 +1,5 @@
 import currentWeather from '../weather-Data/weatherData';
-import weatherIcons from "../cutomMapping/iconMapping";
+import weatherIcons from "../customMapping/iconMapping";
 
 const apiKey = 'a45efc5b41c54b5b8e6155635240606';
 
