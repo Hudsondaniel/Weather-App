@@ -125,7 +125,7 @@ h4 {
 
 .top-deck, .bottom-deck {
     display: grid;
-    grid-template-columns: 0.3fr 0.7fr;
+    grid-template-columns: 0.3fr 0.8fr;
     gap: 20px;
 }
 
@@ -218,3 +218,41 @@ backdrop-filter: blur(0.8px);
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
+/* Wind status section styles */
+
+.wind-status{
+    display: grid;
+    overflow: hidden;
+    padding: 15px;
+    grid-template-rows: 30px 1fr 40px;
+}
+
+.title-wind{
+    color: rgba(255, 255, 255, 0.534);
+    font-weight: 400;
+    font-size: 1.2em;
+    padding: 0;
+    margin: 0;
+}
+
+.wind-details{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: white;
+}
+
+.speed{
+    font-weight: 300;
+    font-size: 1.8em;
+}
+
+.km{
+    font-weight: 100;
+    font-size: 0.8em;
+}
+
+.time{
+    font-weight: 100;
+    color: rgba(255, 255, 255, 0.466);
+}
