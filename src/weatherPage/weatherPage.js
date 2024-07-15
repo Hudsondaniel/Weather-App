@@ -22,7 +22,8 @@ async function displayWeather() {
 
         // Temperature data
         const temperature = weatherData.current.temp_c; 
-        console.log(temperature); // Log the temperature for debugging purposes
+         // Log the temperature for debugging purposes
+
         temperatureDiv.innerHTML = `<h1 id="temperature" class="temperature">${temperature}°<span class="degree">C</span></h1>`;
 
         // Country and location data
@@ -35,7 +36,8 @@ async function displayWeather() {
         dateContainer.innerHTML = `<h3 class="calendar"><span class="time">${date}</span></h3>`;
 
         // SVG data. 
-        console.log(conditionCode);
+        console.log("Temperature of " + locality + " is " + temperature);
+        console.log( "Weather code is " + conditionCode);
         if(isDay){
             svgContainer.innerHTML = `<img src= ${weatherIcons[conditionCode]?.day} class="icon-temp">`;
         }
