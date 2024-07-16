@@ -224,7 +224,7 @@ backdrop-filter: blur(0.8px);
     display: grid;
     overflow: hidden;
     padding: 15px;
-    grid-template-rows: 25px 1fr 40px;
+    grid-template-rows: 15% 1fr 30%;
 }
 
 .title-wind, .title-UV, .title-sunrise{
@@ -268,4 +268,31 @@ backdrop-filter: blur(0.8px);
     font-weight: 100;
     font-size: 0.8em;
 }
+
+.sunrise-details{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: white;
+}
+
+.sunrise-time, .sunset-time{
+    display: flex;
+    flex-direction: column;
+    font-weight: 400;
+    font-size: 1.8vh;
+}
+
+.sunset-time{
+    align-items: flex-end;
+}
+
+.sunrise-text, .sunset-text{
+    padding: 0;
+    margin: 0;
+    color: orange;
+    font-size: 1.5vh;
+}
+
+
 
