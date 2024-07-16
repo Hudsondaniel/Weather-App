@@ -139,7 +139,39 @@
 
                         <div class="sunrise">
                             <h4 class="title-sunrise">Sunrise & Sunset</h4>
-                            <div class="graph"></div>
+                            <div class="sunrise-dial">
+                                <div class="svg-container">
+                                    <svg id="sun-dial" viewBox="0 0 350 150" preserveAspectRatio="xMidYMid meet" width="100%" height="auto">
+                                        <defs>
+                                            <linearGradient id="gradient" x1="0%" y1="0%" x2="0%" y2="100%">
+                                                <stop offset="0%" style="stop-color:rgb(255, 223, 0);stop-opacity:1" />
+                                                <stop offset="100%" style="stop-color:rgb(255, 153, 0);stop-opacity:0.8" />
+                                            </linearGradient>
+                                            <filter id="shadow" x="-50%" y="-50%" width="200%" height="200%">
+                                                <feGaussianBlur in="SourceAlpha" stdDeviation="3" result="blur"/>
+                                                <feOffset in="blur" dx="0" dy="2" result="offsetBlur"/>
+                                                <feMerge>
+                                                    <feMergeNode in="offsetBlur"/>
+                                                    <feMergeNode in="SourceGraphic"/>
+                                                </feMerge>
+                                            </filter>
+                                        </defs>
+                                
+                                        <g transform="translate(175, 130)">
+                                            <path class="dial-line" d="M -130 0 A 130 130 0 0 1 130 0"/>
+                                            <path class="sun-arc" d="" />
+                                            <circle class="sun-icon" cx="" cy="" r="6"/>
+                                            <g text-anchor="middle">
+                                                <text x="-130" y="20">6 AM</text>
+                                                <text x="-90" y="-70">9 AM</text>
+                                                <text x="0" y="-100">12 PM</text>
+                                                <text x="90" y="-70">3 PM</text>
+                                                <text x="130" y="20">6 PM</text>
+                                            </g>
+                                        </g>
+                                    </svg>
+                                </div>
+                            </div>
                             <div class="wind-details">
                                 <h4 class="wind-speed"><span class="speed">7.90</span><span class="km"> km/hr</span></h4>
                                 <h4 class="time">5:01 AM</h4>
