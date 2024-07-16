@@ -140,7 +140,31 @@
                         <div class="sunrise">
                             <h4 class="title-sunrise">Sunrise & Sunset</h4>
                             <div class="sunrise-dial">
+                                <div class="sunrise-svg-container">
+                                    <svg  viewBox="0 0 300 120" preserveAspectRatio="xMidYMid meet" width="100%" height="auto">
+                                        <defs>
+                                            <linearGradient id="sun-gradient" x1="0%" y1="0%" x2="0%" y2="100%">
+                                                <stop offset="0%" style="stop-color:rgb(250, 217, 0);stop-opacity:1" />
+                                                <stop offset="100%" style="stop-color:rgb(255, 153, 0);stop-opacity:0.8" />
+                                            </linearGradient>
+                                            <filter id="sun-shadow" x="-50%" y="-50%" width="200%" height="200%">
+                                                <feGaussianBlur in="SourceAlpha" stdDeviation="3" result="blur"/>
+                                                <feOffset in="blur" dx="0" dy="2" result="offsetBlur"/>
+                                                <feMerge>
+                                                    <feMergeNode in="offsetBlur"/>
+                                                    <feMergeNode in="SourceGraphic"/>
+                                                </feMerge>
+                                            </filter>
+                                        </defs>
+                                
+                                        <g transform="translate(150, 150)">
+                                            <path class="dial-line" d="M -130 0 A 130 130 0 0 1 130 0"/>
+                                            <path class="sun-arc" d="" />
+                                            <circle class="sun-icon" cx="" cy="" r="6"/>
 
+                                        </g>
+                                    </svg>
+                                </div>
                             </div>
                             <div class="wind-details">
                                 <h4 class="wind-speed"><span class="speed">7.90</span><span class="km"> km/hr</span></h4>
