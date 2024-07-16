@@ -1,0 +1,46 @@
+.UV-Dial {
+    height: 100%; /* Take full height of parent container */
+    width: 100%; /* Take full width of parent container */
+    overflow: hidden; /* Hide any overflow beyond the container */
+}
+
+.svg-container{
+    height: 100%;
+    width: 100%;
+    overflow: hidden;
+}
+
+.dial-line {
+    fill: none;
+    stroke: #ccc; /* Gray color for dial line */
+    stroke-width: 4; /* Thickness of the dial line */
+    filter: url(#shadow); /* Apply shadow filter */
+}
+
+.blue-arc {
+    fill: none;
+    stroke: url(#gradient); /* Gradient for the blue arc */
+    stroke-width: 20; /* Thickness of the blue arc */
+    stroke-linecap: round; /* Rounded line ends for better appearance */
+}
+
+text {
+    fill: #fff;
+    font-family: Arial, sans-serif;
+    font-size: 12px;
+    opacity: 0.5; /* Transparency for the text */
+}
+
+.uv-value {
+    fill: #fff;
+    font-family: Arial, sans-serif;
+    font-size: 24px;
+    text-anchor: middle;
+}
+
+.label {
+    fill: #fff;
+    font-family: Arial, sans-serif;
+    font-size: 16px;
+    text-anchor: start;
+}

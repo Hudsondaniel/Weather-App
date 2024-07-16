@@ -7,6 +7,7 @@
     <title>Weather App</title>
     <script src="./main.js" defer></script>
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB41DRUbKWJHPxaFjMAwdrzWzbVKartNGg&callback=initMap&v=weekly" defer></script>
+    <script src="https://d3js.org/d3.v7.min.js"></script>
 </head>
 <body>
     <!-- contiainer inside which everything goes-->
@@ -90,8 +91,47 @@
                         <div class="UV-index">
                             <h4 class="title-UV">UV Index</h4>
                             <div class="UV-Dial">
-
+                                <div class="svg-container">
+                                    <svg viewBox="0 0 300 120" preserveAspectRatio="xMidYMid meet" width="100%" height="auto">
+                                        <!-- Define gradient for the blue arc -->
+                                        <defs>
+                                            <linearGradient id="gradient" x1="0%" y1="0%" x2="0%" y2="100%">
+                                                <stop offset="0%" style="stop-color:steelblue;stop-opacity:1" />
+                                                <stop offset="100%" style="stop-color:steelblue;stop-opacity:0.2" />
+                                            </linearGradient>
+                                            <filter id="shadow" x="-50%" y="-50%" width="200%" height="200%">
+                                                <feGaussianBlur in="SourceAlpha" stdDeviation="3" result="blur"/>
+                                                <feOffset in="blur" dx="0" dy="2" result="offsetBlur"/>
+                                                <feMerge>
+                                                    <feMergeNode in="offsetBlur"/>
+                                                    <feMergeNode in="SourceGraphic"/>
+                                                </feMerge>
+                                            </filter>
+                                        </defs>
+                                
+                                        <!-- Define the center and radius for the semi-circle -->
+                                        <g transform="translate(150, 150)">
+                                            <!-- Draw the gray dial line as a semi-circle -->
+                                            <path class="dial-line" d="M -130 0 A 130 130 0 0 1 130 0"/>
+                                
+                                            <!-- Define the blue arc as a semi-circle -->
+                                            <path class="blue-arc"/>
+                                
+                                            <!-- Text labels for the semi-circle -->
+                                            <g text-anchor="middle">
+                                                <text x="-100" y="20">0</text>
+                                                <text x="-60" y="-80">2</text>
+                                                <text x="0" y="-110">4</text>
+                                                <text x="60" y="-80">6</text>
+                                                <text x="100" y="20">8</text>
+                                                <text class="uv-value" x="0" y="90"></text>
+                                            </g>
+                                        </g>
+                                    </svg>
+                                </div>
+                                
                             </div>
+                            
                             <div class="UV-details">
                                 <h4 class="wind-speed"><span class="speed">5.50</span><span class="UV"> UV</span></h4>
                             </div>
