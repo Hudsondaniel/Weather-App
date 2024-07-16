@@ -220,14 +220,14 @@ backdrop-filter: blur(0.8px);
 
 /* Wind status section styles */
 
-.wind-status, .UV-index{
+.wind-status, .UV-index, .sunrise{
     display: grid;
     overflow: hidden;
     padding: 15px;
     grid-template-rows: 25px 1fr 40px;
 }
 
-.title-wind, .title-UV{
+.title-wind, .title-UV, .title-sunrise{
     color: rgba(255, 255, 255, 0.534);
     font-weight: 400;
     font-size: 1em;
