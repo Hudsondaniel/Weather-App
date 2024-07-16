@@ -220,17 +220,17 @@ backdrop-filter: blur(0.8px);
 
 /* Wind status section styles */
 
-.wind-status{
+.wind-status, .UV-index{
     display: grid;
     overflow: hidden;
     padding: 15px;
     grid-template-rows: 30px 1fr 40px;
 }
 
-.title-wind{
+.title-wind, .title-UV{
     color: rgba(255, 255, 255, 0.534);
     font-weight: 400;
-    font-size: 1.2em;
+    font-size: 1em;
     padding: 0;
     margin: 0;
 }
@@ -255,4 +255,16 @@ backdrop-filter: blur(0.8px);
 .time{
     font-weight: 100;
     color: rgba(255, 255, 255, 0.466);
+}
+
+.UV-details{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+}
+
+.UV{
+    font-weight: 100;
+    font-size: 0.8em;
 }
