@@ -186,14 +186,14 @@ backdrop-filter: blur(0.8px);
 
 .heading-top-second{
     display: flex;
-    color: white;
+    color: rgba(255, 255, 255, 0.918);
     padding-left: 10px;
     font-weight: 300;
 }
 
 .top-deck-second{
     display: grid;
-    grid-template-rows: 35px 0.6fr 0.4fr;
+    grid-template-rows: 35px 0.7fr 0.3fr;
     padding: 20px;
 }
 
@@ -224,7 +224,7 @@ backdrop-filter: blur(0.8px);
     display: grid;
     overflow: hidden;
     padding: 15px;
-    grid-template-rows: 30px 1fr 40px;
+    grid-template-rows: 25px 1fr 40px;
 }
 
 .title-wind, .title-UV{
@@ -244,7 +244,7 @@ backdrop-filter: blur(0.8px);
 
 .speed{
     font-weight: 300;
-    font-size: 1.8em;
+    font-size: 3vh;
 }
 
 .km{
