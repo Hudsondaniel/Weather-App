@@ -1,13 +1,51 @@
-h5{
+h5,h4{
     padding: 0;
     margin: 0;
 }
 
-.Humidity, .Windchill, .humidity-value, .humidity-unit, .windchill-value, .windchill-unit{
-    padding: 0;
-    margin: 0;
+.humidity-windchill{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
 }
 
-.internal-container{
+.humidity-value,.windchill-value{
     display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+
+.Humidity-container, .windchill-container{
+    display: grid;
+    grid-template-rows: 40% 1fr;
+
+}
+
+.windchill-container{
+    border-left: 1px solid rgba(255, 255, 255, 0.116);
+}
+
+.Humidity-title, .Windchill-title{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 200;
+    color: rgba(255, 255, 255, 0.747);
+    font-size: 1.8vh;
+}
+
+.Windchill-title{
+    padding-right: 15px;
+}
+
+.humidity-number, .windchill-number{
+    font-size: 3.5vh;
+    color: white;
+    font-weight: 400;
+}
+
+.humidity-unit, .windchill-unit{
+    color: rgba(255, 255, 255, 0.432);
+    font-size: 1.8vh;
+    padding-left: 5px;
 }
