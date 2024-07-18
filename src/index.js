@@ -8,5 +8,7 @@ import './Today-Highlight-Section/UV-Index/UV-Index.js'
 import './Today-Highlight-Section/UV-Index/UV-Index.css'
 import './Today-Highlight-Section/Sunrise-Sunset/sunrise.css'
 import './Today-Highlight-Section/Sunrise-Sunset/sunrise.js'
+import './Today-Highlight-Section/Humidity-Windchill/humidity-windchill.js'
+import './Today-Highlight-Section/Humidity-Windchill/humidity-windchill.css'
 
 

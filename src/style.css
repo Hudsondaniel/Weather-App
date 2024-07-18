@@ -210,7 +210,7 @@ backdrop-filter: blur(0.8px);
     gap: 15px;
 }
 
-.wind-status, .UV-index, .sunrise, .humidity, .visibility, .feels-like{
+.wind-status, .UV-index, .sunrise, .humidity-windchill, .visibility, .feels-like{
     background: rgba(0, 0, 0, 0.59);
     border-radius: 10px;
     backdrop-filter: blur(8px);
