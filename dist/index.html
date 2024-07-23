@@ -6,7 +6,7 @@
     <link rel="icon" type="image/x-icon"  href="../Assets/weather-icons-dev/production/fill/svg/snowflake.svg">
     <title>Weather App</title>
     <script src="./main.js" defer></script>
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB41DRUbKWJHPxaFjMAwdrzWzbVKartNGg&callback=initMap&v=weekly" defer></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAPt-7nt-ZuKZh02FKzU_WhlbB9G_gyTQs&libraries=places,geometry,visualization&callback=initMap" defer></script>
     <script src="https://d3js.org/d3.v7.min.js"></script>
 </head>
 <body>
@@ -256,7 +256,9 @@
                     <h4 class="heading-bottom">7 Days Forecast</h4>
                 </div>
                 <div class="bottom-deck-second">
-                    <div id="map"></div>
+                    <div id="map">
+
+                    </div>
                 </div>
             </div>
         </div>
@@ -271,6 +273,5 @@
     </div>
         
     <div id="modal-overlay" class="modal-overlay"></div>
-
 </body>
 </html>

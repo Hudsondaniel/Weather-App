@@ -295,4 +295,8 @@ backdrop-filter: blur(0.8px);
 }
 
 
+#map{
+    height: 100%;
+    width: 100%;
+}
 
