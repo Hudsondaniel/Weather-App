@@ -5,7 +5,7 @@ h5,h4{
 
 /*Humidity and windchill css*/
 
-.humidity-windchill{
+.humidity-windchill, .visibility, .feels-like{
     display: grid;
     grid-template-columns: 1fr 1fr;
 }
