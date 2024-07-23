@@ -3,6 +3,8 @@ h5,h4{
     margin: 0;
 }
 
+/*Humidity and windchill css*/
+
 .humidity-windchill{
     display: grid;
     grid-template-columns: 1fr 1fr;
