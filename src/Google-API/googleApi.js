@@ -9,8 +9,8 @@ async function initMap() {
     center = { lat: 37.4161493, lng: -122.0812166 };
     map = new Map(document.getElementById("map"), {
     center: center,
-    zoom: 1,
-    mapId: "592e46f5751e805d", // Fixed: Use `mapId` instead of `mapID`
+    zoom: 10,
+    mapId: "592e46f5751e805d", 
 });
 
 findPlaces();
@@ -23,7 +23,7 @@ async function findPlaces() {
     const { AdvancedMarkerElement } = await google.maps.importLibrary("marker");
 
     const request = {
-        textQuery: "Bangalore",
+        textQuery: "Davangere",
         fields: ["displayName", "location", "businessStatus"],
         locationBias: { lat: 37.4161493, lng: -122.0812166 },
         isOpenNow: true,
