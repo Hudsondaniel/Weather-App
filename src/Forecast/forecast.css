@@ -11,8 +11,6 @@
     padding-left: 20px;
     padding-right: 20px;
     padding-bottom: 20px;
-
-
 }
 
 .day-1,.day-2, .day-3, .day-4{
@@ -24,9 +22,39 @@
 }
 
 .img-temp-forecast{
-    display: flex;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+}
+
+.forecast-number{
+    font-size: 2.7vh;
+    font-weight: 400;
 }
 
 .forecast-temperature{
-    padding-left: 20px;
+    display: flex;
+    align-items: center;
+}
+
+.date-month, .day{
+    font-weight: 200;
+    font-size: 1.5vh;
+}
+
+.date-month{
+    margin-right: 20px;
+}
+
+.forecast-image-loading{
+    height: 100%;
+    width: 50px;
+}
+
+.forecast-celsius{
+    font-weight: 250;
+}
+
+.forecast-image-svg{
+
 }
