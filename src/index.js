@@ -11,5 +11,7 @@ import './Today-Highlight-Section/Sunrise-Sunset/sunrise.css'
 import './Today-Highlight-Section/Sunrise-Sunset/sunrise.js'
 import './Today-Highlight-Section/Humidity-Windchill/humidity-windchill.js'
 import './Today-Highlight-Section/Humidity-Windchill/humidity-windchill.css'
+import './Forecast/forecast.css'
+import './Forecast/forecast.js'
 
 

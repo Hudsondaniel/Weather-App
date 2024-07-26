@@ -1,0 +1,32 @@
+.bottom-deck-first{
+    display: grid;
+    grid-template-rows: 50px auto;
+}
+
+.forecast-box{
+    display: grid;
+    grid-template-rows: 30% 30% 30%;
+    height: 100%;
+    width: auto;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-bottom: 20px;
+
+
+}
+
+.day-1,.day-2, .day-3, .day-4{
+    display: flex;
+    flex-direction: row;
+    color: white;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.img-temp-forecast{
+    display: flex;
+}
+
+.forecast-temperature{
+    padding-left: 20px;
+}
