@@ -10,7 +10,6 @@ h1, h3{
 
 .top-deck-first{
     display: grid;
-    grid-template-rows: 0.7fr 1fr;
     padding: 20px;
 }
 
@@ -78,16 +77,14 @@ h1, h3{
 /* Text styling  */
 
 .second-container{
-    display: grid;
-    grid-template-rows: 0.4fr 1fr;
-    overflow: hidden;
+    display: flex;
+    flex-direction: column;
 }
 
 .temperature-letter{
     display: flex;
     place-items: start;  
     justify-content: flex-start; 
-    padding-bottom: 5%;
 }
 
 .temperature{
@@ -134,10 +131,9 @@ h1, h3{
 }
 
 .city-calendar{
-    margin-top: 10px;
     margin-left: 20px;
     margin-right: 20px;
-    padding-top: 10%;
+    padding-top: 5%;
     border-top: 2px solid rgba(119, 118, 118, 0.288);
 }
 
@@ -150,4 +146,19 @@ h1, h3{
     display: flex;
     flex-direction: row;
     padding-top: 5%;
+}
+
+.condition{
+    display: flex;
+    width: 100%; /* or a specific width */
+    height: 20%; /* or a specific height */
+    overflow: hidden; 
+    padding-left: 20px;
+}
+
+.condition-text{
+    color: rgb(255, 255, 255);
+    font-weight: 200;
+    font-size: 2vh;
+    margin-bottom: 10%;
 }

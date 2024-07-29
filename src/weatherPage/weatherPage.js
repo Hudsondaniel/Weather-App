@@ -15,6 +15,8 @@ async function displayWeather() {
     const locationContainer = document.querySelector('.location');
     const dateContainer = document.querySelector('.time-calendar');
     const svgContainer = document.querySelector('.weather-icon');
+    const conditionText = document.querySelector('.condition-text');
+    const conditionIcon = document.querySelector('.condition-icon');
     const conditionCode = weatherData.current.condition.code; // Get the condition code from the weather data
     const isDay = weatherData.current.is_day;
     
@@ -44,6 +46,9 @@ async function displayWeather() {
         else 
             svgContainer.innerHTML = `<img src= ${weatherIcons[conditionCode]?.night} class="icon-temp">`;
         }
+
+        conditionText.innerHTML = weatherData.current.condition.text;
+
 }
 
 displayWeather();
