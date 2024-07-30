@@ -13,7 +13,7 @@
     padding-bottom: 20px;
 }
 
-.day-1,.day-2, .day-3, .day-4{
+.day-1,.day-2, .day-3{
     display: flex;
     flex-direction: row;
     color: white;
@@ -24,7 +24,7 @@
 .img-temp-forecast{
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 40px;
+    gap: 15px;
 }
 
 .forecast-number{
