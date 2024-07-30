@@ -5,11 +5,11 @@ let center;
 async function initMap() {
   // Load the Google Maps library
     const { Map } = await google.maps.importLibrary("maps");
-    
     center = { lat: 37.4161493, lng: -122.0812166 };
+    const initialZoom = 8;
     map = new Map(document.getElementById("map"), {
     center: center,
-    zoom: 8,
+    zoom: initialZoom,
     mapId: "592e46f5751e805d", 
 });
 
@@ -51,6 +51,8 @@ async function findPlaces() {
             position: place.location,
             title: place.displayName,
         });
+        map.fitBounds(bounds);
+        map.setZoom(map.getZoom() - 1);
 
         bounds.extend(place.location);
         console.log(place);
