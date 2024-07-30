@@ -297,8 +297,22 @@ backdrop-filter: blur(0.8px);
 
 
 #map{
+    position: relative; /* Ensure the container is positioned relative for absolute positioning of the pseudo-element */
     height: 100%;
     width: 100%;
-    border-radius: 10px;
+    border-radius: 10px; /* Apply rounded corners */
+    overflow: hidden; /* Prevent overlay from overflowing */
 }
 
+#map::before {
+    content: ''; /* Required for pseudo-elements */
+    position: absolute; /* Position absolutely to cover the entire container */
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.212); /* Light shade with transparency */
+    pointer-events: none; /* Prevent the overlay from blocking interactions */
+    z-index: 1; /* Ensure the overlay is above the container’s background */
+    border-radius: 10px; /* Match the border radius of the container */
+}
