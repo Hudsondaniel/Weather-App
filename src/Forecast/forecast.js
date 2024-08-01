@@ -3,7 +3,7 @@ import weatherIcons from "../customMapping/iconMapping";
 // Function to fetch forecast data
 async function forecast(apiKey) {
     try {
-        const response = await fetch(`https://api.weatherapi.com/v1/forecast.json?key=${apiKey}&q=London&days=3&aqi=no&alerts=no`);
+        const response = await fetch(`https://api.weatherapi.com/v1/forecast.json?key=${apiKey}&q=Hosur&days=3&aqi=no&alerts=no`);
         if (!response.ok) {
             throw new Error(`HTTP error! status: ${response.status}`);
         }
