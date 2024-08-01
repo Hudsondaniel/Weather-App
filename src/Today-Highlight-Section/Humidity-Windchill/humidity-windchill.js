@@ -27,7 +27,13 @@ async function moreStats() {
             windDirection.textContent = `${weatherData.current.wind_dir}`;
             dewPointNumber.textContent = `${weatherData.current.dewpoint_c}`;
             feelslikeNumber.textContent = `${weatherData.current.feelslike_c}`;
-            
+            const speed = document.querySelector('.speed-UV');
+            if (speed) {
+                speed.textContent = weatherData.current.uv;
+            } else {
+                console.warn("Element with class 'speed' not found.");
+            }
+
         } else {
             console.error('No weather data available');
         }

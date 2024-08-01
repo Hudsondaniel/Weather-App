@@ -243,7 +243,12 @@ backdrop-filter: blur(0.8px);
     color: white;
 }
 
-.speed{
+.speed, .speed-UV{
+    font-weight: 300;
+    font-size: 3vh;
+}
+
+.speed-UV{
     font-weight: 300;
     font-size: 3vh;
 }
@@ -267,7 +272,7 @@ backdrop-filter: blur(0.8px);
 
 .UV{
     font-weight: 100;
-    font-size: 0.8em;
+    font-size: 1em;
 }
 
 .sunrise-details{
