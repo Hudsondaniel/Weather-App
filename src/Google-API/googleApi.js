@@ -1,6 +1,7 @@
+import { locationName } from "../Location/location";
+
 let map;
 let center;
-
 
 async function initMap() {
   // Load the Google Maps library

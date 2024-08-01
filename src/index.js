@@ -13,5 +13,5 @@ import './Today-Highlight-Section/Humidity-Windchill/humidity-windchill.js'
 import './Today-Highlight-Section/Humidity-Windchill/humidity-windchill.css'
 import './Forecast/forecast.css'
 import './Forecast/forecast.js'
-
+import './Location/location.js'
 
