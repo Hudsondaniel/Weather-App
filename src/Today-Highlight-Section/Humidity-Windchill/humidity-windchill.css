@@ -40,7 +40,7 @@ h5,h4{
     padding-right: 15px;
 }
 
-.humidity-number, .windchill-number{
+.humidity-number, .windchill-number, .visibility-number, .winddirection-string, .dewpoint-number, .feelslike-number{
     font-size: 3.5vh;
     color: white;
     font-weight: 400;

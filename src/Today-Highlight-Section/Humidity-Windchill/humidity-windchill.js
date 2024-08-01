@@ -14,11 +14,20 @@ async function moreStats() {
             // Extract humidity from the weather data
             const humidityNumber = document.querySelector('.humidity-number');
             const windchillUnit = document.querySelector('.windchill-number');
+            const visibilityNumber = document.querySelector('.visibility-number');
+            const windDirection = document.querySelector('.winddirection-string');
+            const dewPointNumber = document.querySelector('.dewpoint-number');
+            const feelslikeNumber = document.querySelector('.feelslike-number');
             
 
             humidityNumber.textContent = `${weatherData.current.humidity}`;
             console.log(weatherData.current.humidity);
             windchillUnit.textContent = `${weatherData.current.windchill_c}`;
+            visibilityNumber.textContent = `${weatherData.current.vis_km}`;
+            windDirection.textContent = `${weatherData.current.wind_dir}`;
+            dewPointNumber.textContent = `${weatherData.current.dewpoint_c}`;
+            feelslikeNumber.textContent = `${weatherData.current.feelslike_c}`;
+            
         } else {
             console.error('No weather data available');
         }
