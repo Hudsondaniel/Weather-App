@@ -14,6 +14,7 @@ async function moreStats() {
             // Extract humidity from the weather data
             const humidityNumber = document.querySelector('.humidity-number');
             const windchillUnit = document.querySelector('.windchill-number');
+            
 
             humidityNumber.textContent = `${weatherData.current.humidity}`;
             console.log(weatherData.current.humidity);
