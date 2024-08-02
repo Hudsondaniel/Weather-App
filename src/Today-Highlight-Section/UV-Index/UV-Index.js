@@ -24,7 +24,7 @@ async function blueArc() {
     }
 
     // Calculate angle for the blue arc based on the value
-    const maxValue = 3; // Assuming the maximum value on the dial is 8
+    const maxValue = 10; // Assuming the maximum value on the dial is 8
     const angle = (value / maxValue) * Math.PI; // Calculate the angle for the blue arc
 
     // Define arc generator for the blue arc

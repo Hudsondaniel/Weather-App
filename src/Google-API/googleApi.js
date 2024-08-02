@@ -1,4 +1,3 @@
-import { locationName } from "../Location/location";
 
 let map;
 let center;
