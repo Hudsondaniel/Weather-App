@@ -11,4 +11,4 @@ export function getLocationName() {
 }
 
 
-export { locationName }; 
+export default locationName; 

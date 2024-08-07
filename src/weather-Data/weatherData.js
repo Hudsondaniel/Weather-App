@@ -1,9 +1,10 @@
 const apiKey = 'a45efc5b41c54b5b8e6155635240606';
-
+import locationName from "../Location/location";
 // Get the JSON for a given location -- Gets all the details that are necessary
 async function currentWeather(apiKey) {
     try {
         const response = await fetch(`https://api.weatherapi.com/v1/current.json?key=${apiKey}&q=hosur&aqi=no`);
+        console.log(locationName + "Is working under current weather")
         if (!response.ok) {
             throw new Error(`HTTP error! status: ${response.status}`);
         }
