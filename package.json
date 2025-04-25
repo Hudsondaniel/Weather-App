@@ -4,7 +4,9 @@
   "description": "Full fledged weather app for web",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "webpack --mode production",
+    "dev": "webpack --mode development --watch"
   },
   "repository": {
     "type": "git",

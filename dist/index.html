@@ -5,11 +5,19 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" type="image/x-icon"  href="../Assets/weather-icons-dev/production/fill/svg/snowflake.svg">
     <title>Weather App</title>
-    <script src="./main.js" defer></script>
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAPt-7nt-ZuKZh02FKzU_WhlbB9G_gyTQs&libraries=places,geometry,visualization&callback=initMap" defer></script>
+    <!-- Load Google Maps script first without callback -->
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAPt-7nt-ZuKZh02FKzU_WhlbB9G_gyTQs&libraries=places,geometry,visualization" defer></script>
     <script src="https://d3js.org/d3.v7.min.js"></script>
+    <!-- Load main.js last -->
+    <script src="./main.js" defer></script>
 </head>
 <body>
+    <!-- Mobile Warning Message -->
+    <div class="mobile-warning">
+        <h2>⚠️ Mobile View Not Supported</h2>
+        <p>Please view this application on a larger screen like a laptop or desktop computer.</p>
+    </div>
+
     <!-- contiainer inside which everything goes-->
     <div class="Main-container">
         <!-- Nav bar (Goes on the left) -->
