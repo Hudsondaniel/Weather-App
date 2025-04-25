@@ -12,42 +12,118 @@ async function displayWeather() {
             throw new Error('No weather data received');
         }
 
-        // Selecting containers to display the data
-        const temperatureDiv = document.querySelector('.temperature-letter');
-        const locationContainer = document.querySelector('.location');
-        const dateContainer = document.querySelector('.time-calendar');
-        const svgContainer = document.querySelector('.weather-icon');
-        const conditionText = document.querySelector('.condition-text');
-        const conditionIcon = document.querySelector('.condition-icon');
-        const conditionCode = weatherData.current.condition.code;
-        const isDay = weatherData.current.is_day;
+        // Update current weather
+        updateCurrentWeather(weatherData);
         
-        // Temperature data
-        const temperature = weatherData.current.temp_c;
-        temperatureDiv.innerHTML = `<h1 id="temperature" class="temperature">${temperature}°<span class="degree">C</span></h1>`;
-
-        // Country and location data
-        const country = weatherData.location.country;
-        const locality = weatherData.location.name;
-        locationContainer.innerHTML = `<h3 id="city-name" class="city-name">${locality} , ${country} </h3>`;
-
-        // Date and time data
-        const date = weatherData.location.localtime;
-        dateContainer.innerHTML = `<h3 class="calendar"><span class="time">${date}</span></h3>`;
-
-        // Weather icon
-        if(isDay) {
-            svgContainer.innerHTML = `<img src=${weatherIcons[conditionCode]?.day} class="icon-temp">`;
-        } else {
-            svgContainer.innerHTML = `<img src=${weatherIcons[conditionCode]?.night} class="icon-temp">`;
-        }
-
-        conditionText.innerHTML = weatherData.current.condition.text;
+        // Update forecast
+        updateForecast(weatherData.forecast.forecastday);
+        
+        // Update today's highlights
+        updateTodayHighlights(weatherData);
 
     } catch (error) {
         console.error('Error displaying weather:', error);
         throw error;
     }
+}
+
+function updateCurrentWeather(weatherData) {
+    const temperatureDiv = document.querySelector('.temperature-letter');
+    const locationContainer = document.querySelector('.location');
+    const dateContainer = document.querySelector('.time-calendar');
+    const svgContainer = document.querySelector('.weather-icon');
+    const conditionText = document.querySelector('.condition-text');
+    const conditionCode = weatherData.current.condition.code;
+    const isDay = weatherData.current.is_day;
+    
+    // Temperature data
+    const temperature = weatherData.current.temp_c;
+    temperatureDiv.innerHTML = `<h1 id="temperature" class="temperature">${temperature}°<span class="degree">C</span></h1>`;
+
+    // Country and location data
+    const country = weatherData.location.country;
+    const locality = weatherData.location.name;
+    locationContainer.innerHTML = `<h3 id="city-name" class="city-name">${locality}, ${country}</h3>`;
+
+    // Date and time data
+    const date = weatherData.location.localtime;
+    dateContainer.innerHTML = `<h3 class="calendar"><span class="time">${date}</span></h3>`;
+
+    // Weather icon
+    if(isDay) {
+        svgContainer.innerHTML = `<img src=${weatherIcons[conditionCode]?.day} class="icon-temp">`;
+    } else {
+        svgContainer.innerHTML = `<img src=${weatherIcons[conditionCode]?.night} class="icon-temp">`;
+    }
+
+    conditionText.innerHTML = weatherData.current.condition.text;
+}
+
+function updateForecast(forecastData) {
+    // Update each day's forecast
+    forecastData.forEach((day, index) => {
+        const dayContainer = document.querySelector(`.day-${index + 1}`);
+        if (dayContainer) {
+            const date = new Date(day.date);
+            const dayName = date.toLocaleDateString('en-US', { weekday: 'long' });
+            const monthDay = date.toLocaleDateString('en-US', { month: 'short', day: 'numeric' });
+            
+            // Update forecast icon
+            const iconContainer = dayContainer.querySelector(`.forecast-image-${index + 1}`);
+            const isDay = true; // Always use day icons for forecast
+            iconContainer.innerHTML = `<img src=${weatherIcons[day.day.condition.code]?.day} class="forecast-image" alt="${day.day.condition.text}">`;
+            
+            // Update temperature
+            const tempContainer = dayContainer.querySelector('.forecast-temperature');
+            tempContainer.innerHTML = `<h4 class="forecast-number">${Math.round(day.day.avgtemp_c)}°<span class="forecast-celsius">C</span></h4>`;
+            
+            // Update date
+            dayContainer.querySelector('.date-month').textContent = monthDay;
+            dayContainer.querySelector('.day').textContent = dayName;
+        }
+    });
+}
+
+function updateTodayHighlights(weatherData) {
+    // Update Wind Status
+    const windSpeed = document.querySelector('.wind-speed .speed');
+    const windTime = document.querySelector('.wind-speed .time');
+    if (windSpeed) windSpeed.textContent = weatherData.current.wind_kph.toFixed(2);
+    if (windTime) windTime.textContent = new Date(weatherData.current.last_updated).toLocaleTimeString('en-US', { hour: 'numeric', minute: '2-digit' });
+
+    // Update UV Index
+    const uvIndex = document.querySelector('.speed-UV');
+    if (uvIndex) uvIndex.textContent = weatherData.current.uv;
+
+    // Update Sunrise & Sunset
+    const sunriseTime = document.querySelector('.sunrise-time');
+    const sunsetTime = document.querySelector('.sunset-time');
+    if (sunriseTime) sunriseTime.textContent = weatherData.forecast.forecastday[0].astro.sunrise;
+    if (sunsetTime) sunsetTime.textContent = weatherData.forecast.forecastday[0].astro.sunset;
+
+    // Update Humidity
+    const humidity = document.querySelector('.humidity-number');
+    if (humidity) humidity.textContent = weatherData.current.humidity;
+
+    // Update Wind Chill
+    const windChill = document.querySelector('.windchill-number');
+    if (windChill) windChill.textContent = weatherData.current.feelslike_c;
+
+    // Update Visibility
+    const visibility = document.querySelector('.visibility-number');
+    if (visibility) visibility.textContent = weatherData.current.vis_km;
+
+    // Update Wind Direction
+    const windDirection = document.querySelector('.winddirection-string');
+    if (windDirection) windDirection.textContent = weatherData.current.wind_dir;
+
+    // Update Dew Point
+    const dewPoint = document.querySelector('.dewpoint-number');
+    if (dewPoint) dewPoint.textContent = weatherData.forecast.forecastday[0].hour[0].dewpoint_c;
+
+    // Update Feels Like
+    const feelsLike = document.querySelector('.feelslike-number');
+    if (feelsLike) feelsLike.textContent = weatherData.current.feelslike_c;
 }
 
 // Initial weather display
