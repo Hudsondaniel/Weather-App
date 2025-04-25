@@ -3,17 +3,31 @@ import { getLocationName } from '../Location/location';
 // Get the JSON for a given location -- Gets all the details that are necessary
 async function currentWeather(apiKey) {
     try {
-        const location = getLocationName() || 'Hosur'; // Use searched location or default to Hosur
-        const response = await fetch(`https://api.weatherapi.com/v1/forecast.json?key=${apiKey}&q=${location}&days=3&aqi=no&alerts=no`);
-        console.log(location + "Is working under current weather")
-        if (!response.ok) {
-            throw new Error(`HTTP error! status: ${response.status}`);
+        const location = getLocationName();
+        console.log('Fetching weather for location:', location);
+        
+        if (!location) {
+            throw new Error('No location specified');
         }
+        
+        const url = `https://api.weatherapi.com/v1/current.json?key=${apiKey}&q=${encodeURIComponent(location)}&aqi=no`;
+        console.log('Making API request to:', url);
+        
+        const response = await fetch(url);
+        console.log('API Response status:', response.status);
+        
+        if (!response.ok) {
+            const errorData = await response.json();
+            console.error('API Error:', errorData);
+            throw new Error(`Weather API error: ${errorData.error?.message || response.statusText}`);
+        }
+        
         const data = await response.json();
+        console.log('Weather data received:', data);
         return data;
     } catch (error) {
         console.error('Error fetching the weather data:', error);
-        return null;
+        throw error; // Propagate the error for handling in the UI
     }
 }
 
