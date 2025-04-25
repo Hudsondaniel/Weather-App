@@ -39,7 +39,11 @@ function formatDate(dateString) {
     const date = new Date(dateString);
     const day = date.getDate().toString().padStart(2, '0');
     const month = (date.getMonth() + 1).toString().padStart(2, '0');
-    return `${day}/${month}`;
+    const dayName = date.toLocaleDateString('en-US', { weekday: 'short' });
+    return {
+        date: `${day}/${month}`,
+        dayName: dayName
+    };
 }
 
 // Function to update forecast box
@@ -52,7 +56,7 @@ function updateForecastBox(day, boxClass) {
         }
         
         // Format date
-        const formattedDate = formatDate(day.date);
+        const { date: formattedDate, dayName } = formatDate(day.date);
         
         // Get the weather icon URL
         const weatherIconUrl = weatherIcons[day.day.condition.code]?.day || 'https://cdn.weatherapi.com/weather/64x64/day/113.png';
@@ -72,6 +76,11 @@ function updateForecastBox(day, boxClass) {
         const dateElement = box.querySelector('.date-month');
         if (dateElement) {
             dateElement.textContent = formattedDate;
+        }
+
+        const dayElement = box.querySelector('.day');
+        if (dayElement) {
+            dayElement.textContent = dayName;
         }
     } catch (error) {
         console.error('Error updating forecast box:', error);
