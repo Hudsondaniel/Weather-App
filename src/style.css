@@ -235,7 +235,7 @@ h4 {
     box-sizing: border-box; /* Ensures padding is included in the width and height */
 }
 
-/* First deck of the weather app */
+/* First deck of the SkyNet interface */
 
 .deck-container {
     display: grid;

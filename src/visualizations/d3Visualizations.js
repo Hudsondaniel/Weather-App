@@ -1,4 +1,4 @@
-// D3 Visualizations for Weather App
+// D3 Visualizations for SkyNet
 
 // UV Index Visualization
 export function updateUVIndex(uvValue) {

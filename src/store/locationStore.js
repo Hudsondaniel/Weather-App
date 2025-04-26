@@ -1,6 +1,6 @@
 // Simple state management for location
 const MAX_HISTORY = 5;
-const STORAGE_KEY = 'weatherApp_locationState';
+const STORAGE_KEY = 'skynet_locationState';
 
 class LocationStore {
     constructor() {

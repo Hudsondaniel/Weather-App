@@ -1,7 +1,7 @@
 {
   "name": "skynet",
   "version": "1.0.0",
-  "description": "Full fledged weather app for web",
+  "description": "SkyNet - Your Intelligent Weather Companion",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
@@ -10,7 +10,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Hudsondaniel/Weather-App.git"
+    "url": "git+https://github.com/Hudsondaniel/SkyNet.git"
   },
   "keywords": [
     "weather",
@@ -25,9 +25,9 @@
   "author": "Hudson Daniel",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/Hudsondaniel/Weather-App/issues"
+    "url": "https://github.com/Hudsondaniel/SkyNet/issues"
   },
-  "homepage": "https://github.com/Hudsondaniel/Weather-App#readme",
+  "homepage": "https://github.com/Hudsondaniel/SkyNet#readme",
   "devDependencies": {
     "copy-webpack-plugin": "^13.0.0",
     "css-loader": "^7.1.2",
