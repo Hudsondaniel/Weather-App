@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/x-icon"  href="../Assets/weather-icons-dev/production/fill/svg/snowflake.svg">
+    <title>Weather App</title>
+    <!-- Load Google Maps script first with Places library -->
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAPt-7nt-ZuKZh02FKzU_WhlbB9G_gyTQs&libraries=places,geometry,visualization" defer></script>
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+    <!-- Load main.js last -->
+    <script src="./main.js" defer></script>
+</head>
+<body>
+    <!-- Mobile Warning Message -->
+    <div class="mobile-warning">
+        <h2>⚠️ Mobile View Not Supported</h2>
+        <p>Please view this application on a larger screen like a laptop or desktop computer.</p>
+    </div>
+
+    <!-- contiainer inside which everything goes-->
+    <div class="Main-container">
+        <!-- Nav bar (Goes on the left) -->
+        <nav>
+            <div class="main-div">
+                <div class="icon-div">
+                    <img src="../Assets/snowflake.png" class="img-icon" alt="">
+                    <h4 class="title">Weather</h4>
+                </div>
+                <div class="dashboard-icon"><img src="../Assets/Icons/Dashboard-Icon.svg" class="nav-icon" alt=""></div>
+                <div class="maps-icon"><img src="../Assets/Icons/Map.svg" class="nav-icon" alt=""></div>
+                <div class="location-icon"><img src="../Assets/Icons/Location.svg" class="nav-icon" alt=""></div>
+                <div class="calendar-icon"><img src="../Assets/Icons/Calendar.svg" class="nav-icon" alt=""></div>
+                <div class="settings-icon"><img src="../Assets/Icons/Setting.svg" class="nav-icon" alt=""></div>
+            </div>
+            <div class="profile-div">
+                <div class="notification-icon"><img src="../Assets/Icons/Notifications.svg" alt=""></div>
+                <div class="profile-icon"><img src="../Assets/Icons/ProfilePic.jpg" class="profile-pic" alt=""></div>
+            </div>
+        </nav>
+
+        <!-- Main container to hold the four sections of the main section which I refer to as decks -->
+        <div class="deck-container">
+            <div class="top-deck">
+                <div class="top-deck-first">
+                    <!-- This is the deck that contains the temperature data -->
+                    <div class="first-container">
+                        <div class="weather-icon">
+                            <img src="../Assets/Icons/Loading-Icon.svg" class="forecast-image-loading" alt="">
+                        </div>
+                        <div class="search-icon">
+                            <button id="search-button" class="search-btn">
+                                <img src="../Assets/Icons/search-Icon.svg" alt="Search Icon" class="search-symbol">
+                            </button>
+                        </div>
+
+                    </div>
+
+                    <!-- This container has the text data of the temperature -->
+                    <div class="second-container">
+                        <div class="temperature-letter-condition">
+                            <div class="temperature-letter">
+                                <!--Dynamically placing the info here. -->
+                            </div>
+                            <div class="condition">
+                                <div class="condition-text">
+                                    <!--Dynamically placing the info here. -->
+                                </div>
+                            </div>
+                        </div>
+
+
+                        <div class="city-calendar">
+                            <div class="location-container">
+                                <img src="../Assets/Icons/Location.svg" alt="">
+                                <div class="location">
+                                    <!--Dynamically placing the info here. -->
+                                </div>
+                                
+                            </div>
+                            <div class="calendar-container">
+                                <img src="../Assets/Icons/Calendar.svg" alt="">
+                                <div class="time-calendar">
+                                    <!--Dynamically placing the info here. -->
+                                </div>
+
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+                <!-- Highlights container -->
+                <div class="top-deck-second">
+
+                    <h4 class="heading-top-second">Today's Highlight</h4>
+
+                    <div class="middle-decks">
+
+                        <div class="wind-status">
+                            <h4 class="title-wind">Wind Status</h4>
+                            <div class="graph"></div>
+                            <div class="wind-details">
+                                <h4 class="wind-speed"><span class="speed">7.90</span><span class="km"> km/hr</span></h4>
+                                <h4 class="time">5:01 AM</h4>
+                            </div>
+                        </div>
+
+                        <div class="UV-index">
+                            <h4 class="title-UV">UV Index</h4>
+                            <div class="UV-Dial">
+                                <div class="svg-container">
+                                    <svg viewBox="0 0 300 120" preserveAspectRatio="xMidYMid meet" width="100%" height="auto">
+                                        <!-- Define gradient for the blue arc -->
+                                        <defs>
+                                            <linearGradient id="gradient" x1="0%" y1="0%" x2="0%" y2="100%">
+                                                <stop offset="0%" style="stop-color:rgb(100, 185, 255);stop-opacity:1" />
+                                                <stop offset="100%" style="stop-color:rgb(41, 73, 179);stop-opacity:0.2" />
+                                            </linearGradient>
+                                            <filter id="shadow" x="-50%" y="-50%" width="200%" height="200%">
+                                                <feGaussianBlur in="SourceAlpha" stdDeviation="3" result="blur"/>
+                                                <feOffset in="blur" dx="0" dy="2" result="offsetBlur"/>
+                                                <feMerge>
+                                                    <feMergeNode in="offsetBlur"/>
+                                                    <feMergeNode in="SourceGraphic"/>
+                                                </feMerge>
+                                            </filter>
+                                        </defs>
+                                
+                                        <!-- Define the center and radius for the semi-circle -->
+                                        <g transform="translate(150, 150)">
+                                            <!-- Draw the gray dial line as a semi-circle -->
+                                            <path class="dial-line" d="M -130 0 A 130 130 0 0 1 130 0"/>
+                                
+                                            <!-- Define the blue arc as a semi-circle -->
+                                            <path class="blue-arc"/>
+                                
+                                            <!-- Text labels for the semi-circle -->
+                                            <!-- <g text-anchor="middle">
+                                                <text x="-100" y="20">0</text>
+                                                <text x="-60" y="-80">2</text>
+                                                <text x="0" y="-110">4</text>
+                                                <text x="60" y="-80">6</text>
+                                                <text x="100" y="20">8</text>
+                                                <text class="uv-value" x="0" y="90"></text>
+                                            </g> -->
+                                        </g>
+                                    </svg>
+                                </div>
+                            </div>
+                            <div class="UV-details">
+                                <h4 class="wind-speed"><span class="speed-UV">--</span><span class="UV"> UV</span></h4>
+                            </div>
+                        </div>
+
+                        <div class="sunrise">
+                            <h4 class="title-sunrise">Sunrise & Sunset</h4>
+                            <div class="sunrise-dial">
+                                <div class="sunrise-svg-container">
+                                    <svg  viewBox="0 0 300 120" preserveAspectRatio="xMidYMid meet" width="100%" height="auto">
+                                        <defs>
+                                            <linearGradient id="sun-gradient" x1="0%" y1="0%" x2="0%" y2="100%">
+                                                <stop offset="0%" style="stop-color:rgb(250, 217, 0);stop-opacity:1" />
+                                                <stop offset="100%" style="stop-color:rgb(255, 153, 0);stop-opacity:0.8" />
+                                            </linearGradient>
+                                            <filter id="sun-shadow" x="-50%" y="-50%" width="200%" height="200%">
+                                                <feGaussianBlur in="SourceAlpha" stdDeviation="3" result="blur"/>
+                                                <feOffset in="blur" dx="0" dy="2" result="offsetBlur"/>
+                                                <feMerge>
+                                                    <feMergeNode in="offsetBlur"/>
+                                                    <feMergeNode in="SourceGraphic"/>
+                                                </feMerge>
+                                            </filter>
+                                        </defs>
+                                
+                                        <g transform="translate(150, 150)">
+                                            <path class="dial-line" d="M -130 0 A 130 130 0 0 1 130 0"/>
+                                            <path class="sun-arc" d="" />
+                                            <circle class="sun-icon" cx="" cy="" r="6"/>
+
+                                        </g>
+                                    </svg>
+                                </div>
+                            </div>
+                            <div class="sunrise-details">
+                                <div class="sunrise-time">
+                                    <p class="sunrise-text">Sunrise</p>
+                                    <h4 class="sunrise-time">5:50 AM</h4>
+                                </div>
+                                <div class="sunset-time">
+                                    <p class="sunset-text">Sunset</p>
+                                    <h4 class="sunset-time">6:30 PM</h4>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="bottom-decks">
+                        <!--- I have made it so that all containers have the same class name because it is getting complicated to fix assign all of them classes. The styling for the three decks is found in humidity windchill css file -->
+                        
+                        <div class="humidity-windchill">
+                                <div class="Humidity-container">
+                                    <h5 class="Humidity-title">
+                                        Humidity
+                                    </h5>
+                                    <div class="humidity-value">
+                                        <h4 class="humidity-number">--</h4>
+                                        <h4 class="humidity-unit">%</h4>
+                                    </div>
+
+                                </div>
+                                <div class="windchill-container">
+                                    <h5 class="Windchill-title">
+                                        Windchill
+                                    </h5>
+                                    <div class="windchill-value">
+                                        <h4 class="windchill-number">--</h4>
+                                        <h4 class="windchill-unit">°C</h4>
+                                    </div>
+                                </div>
+                        </div>
+
+                        <div class="visibility">
+                            <div class="Humidity-container">
+                                <h5 class="Humidity-title">
+                                    Visibility
+                                </h5>
+                                <div class="humidity-value">
+                                    <h4 class="visibility-number">--</h4>
+                                    <h4 class="humidity-unit">km</h4>
+                                </div>
+
+                            </div>
+                            <div class="windchill-container">
+                                <h5 class="Windchill-title">
+                                    Wind direction
+                                </h5>
+                                <div class="windchill-value">
+                                    <h4 class="winddirection-string">--</h4>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="feels-like">
+                                <div class="Humidity-container">
+                                    <h5 class="Humidity-title">
+                                        Dew Point
+                                    </h5>
+                                    <div class="humidity-value">
+                                        <h4 class="dewpoint-number">--</h4>
+                                        <h4 class="windchill-unit">°C</h4>
+                                    </div>
+
+                                </div>
+                                <div class="windchill-container">
+                                    <h5 class="Windchill-title">
+                                        Feels Like
+                                    </h5>
+                                    <div class="windchill-value">
+                                        <h4 class="feelslike-number">--</h4>
+                                        <h4 class="windchill-unit">°C</h4>
+                                    </div>
+                                </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+            <div class="bottom-deck">
+                <div class="bottom-deck-first">
+                    <h4 class="heading-bottom">3 Days Forecast</h4>
+                    <div class="forecast-box">
+                            <div class="day-1">
+                                <div class="img-temp-forecast">
+                                    <div class="forecast-image">
+                                        <div class="forecast-image-1"><img src="../Assets/Icons/Loading-Icon.svg" class="forecast-image-loading" alt=""></div> 
+                                    </div>
+                                    <div class="forecast-temperature">
+                                        <h4 class="forecast-number">27 </h4>
+                                    </div>
+                                </div>
+                                <div class="date-month">
+                                    12 Feb
+                                </div>
+                                <div class="day">
+                                    Monday
+                                </div>
+                            </div>
+                            <div class="day-2">
+                                <div class="img-temp-forecast">
+                                    <div class="forecast-image">
+                                        <div class="forecast-image-2"><img src="../Assets/Icons/Loading-Icon.svg" class="forecast-image-loading" alt=""></div>
+                                    </div>
+                                    <div class="forecast-temperature">
+                                        <h4 class="forecast-number">27 <span class="forecast-celsius">° C</span></h4>
+                                    </div>
+                                </div>
+                                <div class="date-month">
+                                    12 Feb
+    
+                                </div>
+                                <div class="day">
+                                    Monday
+                                </div>
+                            </div>
+                            <div class="day-3">
+                                <div class="img-temp-forecast">
+                                    <div class="forecast-image">
+                                        <div class="forecast-image-3"><img src="../Assets/Icons/Loading-Icon.svg" class="forecast-image-loading" alt=""></div>
+                                    </div>
+                                    <div class="forecast-temperature">
+                                        <h4 class="forecast-number">27 <span class="forecast-celsius">° C</span></h4>
+                                    </div>
+                                </div>
+                                <div class="date-month">
+                                    12 Feb
+    
+                                </div>
+                                <div class="day">
+                                    Monday
+                                </div>
+                            </div>
+                        </div>
+                    
+                </div>
+                <div class="bottom-deck-second">
+                    <div id="map">
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Keeping the overlay content here -- Giving it the name modal cos these kind of inputs are called modal inputs -->
+    <div id="modal" class="modal">
+        <div class="modal-content">
+            <input id="modal-input" class="modal-input" type="text" placeholder="Enter Location Name">
+            <button id="modal-button" class="modal-button">Look Now!</button>
+        </div>
+    </div>
+        
+    <div id="modal-overlay" class="modal-overlay"></div>
+</body>
+</html>

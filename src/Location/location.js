@@ -1,14 +1,24 @@
-let locationName = ''; 
+import locationStore from '../store/locationStore';
 
 export function setLocationName(name) {
-    locationName = name;
-    console.log(name)
+    locationStore.setLocation(name);
 }
-
 
 export function getLocationName() {
-    return locationName;
+    return locationStore.getState().currentLocation;
 }
 
+export function getLocationHistory() {
+    return locationStore.getState().locationHistory;
+}
 
-export default locationName; 
+export function subscribeToLocationChanges(callback) {
+    return locationStore.subscribe(callback);
+}
+
+export default {
+    setLocationName,
+    getLocationName,
+    getLocationHistory,
+    subscribeToLocationChanges
+}; 

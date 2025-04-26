@@ -20,7 +20,7 @@ async function initMap() {
     try {
         // Load the Google Maps library
         const { Map } = await google.maps.importLibrary("maps");
-        const location = getLocationName() || 'Hosur';
+        const location = getLocationName() || 'Bangalore';
         
         // Get coordinates for the location
         const geocoder = new google.maps.Geocoder();

@@ -21,5 +21,41 @@ function updateSunDial(sunrise, sunset, currentTime) {
     d3.select('.time-value').text(`${currentHour}:${currentMinutes < 10 ? '0' : ''}${currentMinutes}`);
 }
 
-// Example: Set sunrise to 6:00 AM, sunset to 6:00 PM, and current time to 5:01 AM
-updateSunDial("2024-07-16T06:00:00", "2024-07-16T18:00:00", "2024-07-16T05:01:00");
+function getSunriseSunsetFromDOM() {
+    const sunriseElem = document.querySelector('.sunrise-time');
+    const sunsetElem = document.querySelector('.sunset-time');
+    if (!sunriseElem || !sunsetElem) return null;
+    return {
+        sunrise: sunriseElem.textContent,
+        sunset: sunsetElem.textContent
+    };
+}
+
+function parseTimeToToday(timeStr) {
+    // Handles '6:55 AM' or '18:43 PM' format, returns ISO string for today
+    if (!timeStr) return null;
+    const now = new Date();
+    const [time, period] = timeStr.split(' ');
+    if (!time || !period) return null;
+    let [hours, minutes] = time.split(':').map(Number);
+    if (isNaN(hours) || isNaN(minutes)) return null;
+    if (period === 'PM' && hours !== 12) hours += 12;
+    if (period === 'AM' && hours === 12) hours = 0;
+    const date = new Date(now.getFullYear(), now.getMonth(), now.getDate(), hours, minutes);
+    return date.toISOString();
+}
+
+function updateSunDialRealTime() {
+    const times = getSunriseSunsetFromDOM();
+    if (!times) return;
+    const sunriseISO = parseTimeToToday(times.sunrise);
+    const sunsetISO = parseTimeToToday(times.sunset);
+    const nowISO = new Date().toISOString();
+    if (sunriseISO && sunsetISO) {
+        updateSunDial(sunriseISO, sunsetISO, nowISO);
+    }
+}
+
+// Initial call with real data if possible, else fallback to static example
+updateSunDialRealTime();
+setInterval(updateSunDialRealTime, 60000);
