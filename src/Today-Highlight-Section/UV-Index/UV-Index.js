@@ -43,4 +43,5 @@ async function blueArc() {
         .text(value.toFixed(2) + " UV");
 }
 
-blueArc(); // Call the function to fetch UV value and update the blue arc accordingly.
+blueArc(); // Initial call
+setInterval(blueArc, 60000); // Update every minute
