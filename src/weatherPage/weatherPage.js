@@ -1,6 +1,7 @@
 import currentWeather from '../weather-Data/weatherData';
 import { displayForecast } from '../Forecast/forecast';
 import weatherIcons from "../customMapping/iconMapping";
+import { updateWindStatus } from '../visualizations/d3Visualizations';
 
 const apiKey = 'a45efc5b41c54b5b8e6155635240606';
 
@@ -111,6 +112,8 @@ function updateTodayHighlights(weatherData, forecastData) {
         const windTime = document.querySelector('.wind-speed .time');
         if (windSpeed) windSpeed.textContent = weatherData.current.wind_kph.toFixed(1);
         if (windTime) windTime.textContent = new Date(weatherData.current.last_updated).toLocaleTimeString('en-US', { hour: '2-digit', minute: '2-digit', hour12: false });
+        // Add D3 compass update
+        updateWindStatus(weatherData.current.wind_kph, weatherData.current.wind_dir);
 
         // Update UV Index
         const uvIndex = document.querySelector('.speed-UV');

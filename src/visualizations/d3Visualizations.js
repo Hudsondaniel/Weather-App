@@ -114,76 +114,87 @@ export function updateWindStatus(windSpeed, windDirection) {
     // Clear existing content
     const container = d3.select('.wind-status .graph').html('');
     
-    // Create new SVG
+    // Create new SVG (semi-circle, UV-index style)
     const svg = container.append('svg')
-        .attr('viewBox', '-50 -50 100 100')
-        .attr('preserveAspectRatio', 'xMidYMid meet');
+        .attr('viewBox', '0 0 300 120')
+        .attr('preserveAspectRatio', 'xMidYMid meet')
+        .style('width', '100%')
+        .style('height', '100%')
+        .style('display', 'block');
 
-    const radius = 40;
+    const centerX = 150;
+    const centerY = 150;
+    const radius = 130;
 
-    // Create compass rose
-    const directions = ['N', 'NE', 'E', 'SE', 'S', 'SW', 'W', 'NW'];
-    const directionAngles = [0, 45, 90, 135, 180, 225, 270, 315];
-
-    // Draw compass circle
-    svg.append('circle')
-        .attr('cx', 0)
-        .attr('cy', 0)
-        .attr('r', radius)
-        .attr('fill', 'none')
+    // Draw the gray background arc (semi-circle)
+    svg.append('path')
+        .attr('d', d3.arc()
+            .innerRadius(radius - 8)
+            .outerRadius(radius)
+            .startAngle(-Math.PI / 2)
+            .endAngle(Math.PI / 2)
+        )
+        .attr('transform', `translate(${centerX},${centerY})`)
         .attr('stroke', 'rgba(255, 255, 255, 0.1)')
-        .attr('stroke-width', 0.5);
+        .attr('stroke-width', 0)
+        .attr('fill', 'rgba(255,255,255,0.08)');
 
-    // Add direction labels
-    directions.forEach((dir, i) => {
-        const angle = (directionAngles[i] - 90) * Math.PI / 180;
-        const x = (radius + 8) * Math.cos(angle);
-        const y = (radius + 8) * Math.sin(angle);
-
-        svg.append('text')
-            .attr('x', x)
-            .attr('y', y)
-            .attr('text-anchor', 'middle')
-            .attr('dominant-baseline', 'middle')
-            .style('font-size', '8px')
-            .style('fill', 'rgba(255, 255, 255, 0.5)')
-            .text(dir);
-    });
-
-    // Convert wind direction to angle
+    // Convert wind direction to angle (semi-circle)
     const directionToAngle = {
         'N': 0, 'NNE': 22.5, 'NE': 45, 'ENE': 67.5,
-        'E': 90, 'ESE': 112.5, 'SE': 135, 'SSE': 157.5,
-        'S': 180, 'SSW': 202.5, 'SW': 225, 'WSW': 247.5,
-        'W': 270, 'WNW': 292.5, 'NW': 315, 'NNW': 337.5
+        'E': 90, 'ESE': 90, 'SE': 90, 'SSE': 90, // Clamp to edge
+        'S': 90, 'SSW': 90, 'SW': -90, 'WSW': -90,
+        'W': -90, 'WNW': -45, 'NW': -45, 'NNW': -22.5
     };
+    let angle = directionToAngle[windDirection] ?? 0;
+    angle = Math.max(-90, Math.min(90, angle));
 
-    const angle = directionToAngle[windDirection] || 0;
-
-    // Draw wind arrow
-    const arrowLength = radius * (Math.min(windSpeed, 50) / 50);
-    const arrowAngle = (angle - 90) * Math.PI / 180;
-    const arrowX = arrowLength * Math.cos(arrowAngle);
-    const arrowY = arrowLength * Math.sin(arrowAngle);
-
-    // Arrow body
-    svg.append('line')
-        .attr('x1', 0)
-        .attr('y1', 0)
-        .attr('x2', arrowX)
-        .attr('y2', arrowY)
-        .attr('stroke', '#4CAF50')
-        .attr('stroke-width', 1);
-
-    // Arrow head
-    const headLength = 4;
-    const headAngle = Math.PI / 6;
-    const head1X = arrowX - headLength * Math.cos(arrowAngle - headAngle);
-    const head1Y = arrowY - headLength * Math.sin(arrowAngle - headAngle);
-    const head2X = arrowX - headLength * Math.cos(arrowAngle + headAngle);
-    const head2Y = arrowY - headLength * Math.sin(arrowAngle + headAngle);
-
+    // Draw colored arc for wind direction (like UV index blue arc)
     svg.append('path')
-        .attr('d', `M ${arrowX} ${arrowY} L ${head1X} ${head1Y} L ${head2X} ${head2Y} Z`)
-        .attr('fill', '#4CAF50');
+        .attr('d', d3.arc()
+            .innerRadius(radius - 8)
+            .outerRadius(radius)
+            .startAngle(-Math.PI / 2)
+            .endAngle((angle * Math.PI / 180))
+        )
+        .attr('transform', `translate(${centerX},${centerY})`)
+        .attr('fill', 'url(#wind-gradient)');
+
+    // Add gradient definition for wind arc
+    const defs = svg.append('defs');
+    const gradient = defs.append('linearGradient')
+        .attr('id', 'wind-gradient')
+        .attr('x1', '0%').attr('y1', '0%')
+        .attr('x2', '100%').attr('y2', '0%');
+    gradient.append('stop')
+        .attr('offset', '0%')
+        .attr('stop-color', '#4CAF50');
+    gradient.append('stop')
+        .attr('offset', '100%')
+        .attr('stop-color', '#2196F3');
+
+    // Draw indicator/arrow at the end of the arc
+    const indicatorRadius = radius - 4;
+    const indicatorAngle = (angle - 90) * Math.PI / 180;
+    const indicatorX = centerX + indicatorRadius * Math.cos(indicatorAngle);
+    const indicatorY = centerY + indicatorRadius * Math.sin(indicatorAngle);
+    svg.append('circle')
+        .attr('cx', indicatorX)
+        .attr('cy', indicatorY)
+        .attr('r', 7)
+        .attr('fill', '#4CAF50')
+        .attr('stroke', '#fff')
+        .attr('stroke-width', 2)
+        .attr('filter', 'drop-shadow(0 2px 4px rgba(76,175,80,0.3))');
+
+    // Optionally, add the wind direction text below the arc (centered)
+    svg.append('text')
+        .attr('x', centerX)
+        .attr('y', centerY - radius + 30)
+        .attr('text-anchor', 'middle')
+        .attr('dominant-baseline', 'middle')
+        .style('font-size', '22px')
+        .style('fill', '#fff')
+        .style('opacity', 0.7)
+        .text(windDirection);
 } 
