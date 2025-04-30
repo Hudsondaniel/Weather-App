@@ -1,12 +1,22 @@
-import { getLocationName } from '../Location/location';
+import { getLocationName, subscribeToLocationChanges } from '../Location/location';
 
-let map;
+let map = null;
 let center;
+
+// Subscribe to location changes
+subscribeToLocationChanges((state) => {
+    console.log('Location changed:', state.currentLocation);
+    if (state.currentLocation) {
+        updateMap(state.currentLocation);
+    }
+});
 
 // Wait for DOM and Google Maps to be fully loaded
 document.addEventListener('DOMContentLoaded', async function() {
+    console.log('DOM Content Loaded, initializing map...');
     try {
         await initMap();
+        console.log('Map initialized successfully');
     } catch (error) {
         console.error('Error initializing map:', error);
         const mapDiv = document.getElementById('map');
@@ -18,19 +28,24 @@ document.addEventListener('DOMContentLoaded', async function() {
 
 async function initMap() {
     try {
+        console.log('Starting map initialization...');
         // Load the Google Maps library
         const { Map } = await google.maps.importLibrary("maps");
         const location = getLocationName() || 'Bangalore';
+        console.log('Initial location:', location);
         
         // Get coordinates for the location
         const geocoder = new google.maps.Geocoder();
         const coordinates = await new Promise((resolve, reject) => {
             geocoder.geocode({ address: location }, (results, status) => {
+                console.log('Geocoding status:', status);
                 if (status === 'OK') {
-                    resolve({
+                    const coords = {
                         lat: results[0].geometry.location.lat(),
                         lng: results[0].geometry.location.lng()
-                    });
+                    };
+                    console.log('Initial coordinates:', coords);
+                    resolve(coords);
                 } else {
                     reject(new Error('Geocoding failed'));
                 }
@@ -38,7 +53,7 @@ async function initMap() {
         });
 
         center = coordinates;
-        const initialZoom = 11; // City level zoom
+        const initialZoom = 11;
         
         // Define the dark theme styles
         const darkTheme = [
@@ -146,12 +161,18 @@ async function initMap() {
             fullscreenControl: false
         });
 
-        // Add a marker for the location
-        new google.maps.Marker({
+        console.log('Map instance created:', map !== null);
+
+        // Add a marker for the location and store it
+        if (window.currentMarker) {
+            window.currentMarker.setMap(null);
+        }
+        window.currentMarker = new google.maps.Marker({
             position: center,
             map: map,
             title: location
         });
+        console.log('Initial marker placed');
 
     } catch (error) {
         console.error('Error in map initialization:', error);
@@ -161,19 +182,45 @@ async function initMap() {
 
 // Update map when location changes
 export function updateMap(newLocation) {
-    if (map && newLocation) {
-        const geocoder = new google.maps.Geocoder();
-        geocoder.geocode({ address: newLocation }, (results, status) => {
-            if (status === 'OK') {
-                const newCenter = {
-                    lat: results[0].geometry.location.lat(),
-                    lng: results[0].geometry.location.lng()
-                };
+    console.log('Updating map with location:', newLocation);
+    console.log('Map instance exists:', map !== null);
+    
+    if (!map) {
+        console.error('Map not initialized');
+        // Try to reinitialize the map
+        initMap().then(() => {
+            updateMap(newLocation);
+        }).catch(error => {
+            console.error('Failed to reinitialize map:', error);
+        });
+        return;
+    }
+    
+    if (!newLocation) {
+        console.error('No location provided');
+        return;
+    }
+
+    const geocoder = new google.maps.Geocoder();
+    console.log('Starting geocoding for:', newLocation);
+    
+    geocoder.geocode({ address: newLocation }, (results, status) => {
+        console.log('Geocoding status for update:', status);
+        if (status === 'OK') {
+            const newCenter = {
+                lat: results[0].geometry.location.lat(),
+                lng: results[0].geometry.location.lng()
+            };
+            console.log('New coordinates:', newCenter);
+            
+            try {
                 map.setCenter(newCenter);
+                console.log('Map center updated');
                 
                 // Clear existing markers
                 if (window.currentMarker) {
                     window.currentMarker.setMap(null);
+                    console.log('Previous marker cleared');
                 }
                 
                 // Add new marker
@@ -182,7 +229,50 @@ export function updateMap(newLocation) {
                     map: map,
                     title: newLocation
                 });
+                console.log('New marker placed');
+                
+                // Force a redraw of the map
+                google.maps.event.trigger(map, 'resize');
+                
+            } catch (error) {
+                console.error('Error updating map:', error);
             }
+        } else {
+            console.error('Geocoding failed:', status);
+        }
+    });
+}
+
+// Update map with direct coordinates
+export function updateMapWithCoordinates(lat, lng, title) {
+    console.log('Updating map with coordinates:', { lat, lng, title });
+    if (!map) {
+        console.error('Map not initialized');
+        return;
+    }
+
+    const newCenter = { lat, lng };
+    try {
+        map.setCenter(newCenter);
+        console.log('Map center updated');
+        
+        // Clear existing markers
+        if (window.currentMarker) {
+            window.currentMarker.setMap(null);
+            console.log('Previous marker cleared');
+        }
+        
+        // Add new marker
+        window.currentMarker = new google.maps.Marker({
+            position: newCenter,
+            map: map,
+            title: title || ''
         });
+        console.log('New marker placed');
+        
+        // Force a redraw of the map
+        google.maps.event.trigger(map, 'resize');
+    } catch (error) {
+        console.error('Error updating map with coordinates:', error);
     }
 }
